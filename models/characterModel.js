@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Schema = mongoose.Schema;
 
 let schema = new Schema({
     affiliation: String,
@@ -13,8 +14,16 @@ let schema = new Schema({
         japanese: String,
         korean: String
     },
+    costs: {
+        ascend1: [{ name: String, count: Number }],
+        ascend2: [{ name: String, count: Number }],
+        ascend3: [{ name: String, count: Number }],
+        ascend4: [{ name: String, count: Number }],
+        ascend5: [{ name: String, count: Number }],
+        ascend6: [{ name: String, count: Number }],
+    },
     description: String,
-    element: mongoose.Schema.Types.ObjectId,
+    element: Object,
     gender: String,
     images: {
         card: String,
@@ -44,7 +53,10 @@ let schema = new Schema({
     url: {
         fandom: String
     },
-    weapontype: String
+    weapontype: String,
+    insertDate: {type: Date, default: Date.now()}
 })
-const CharacterENModel = mongoose.model('APIGenshinDB', schema, "charactersEN")
-const CharacterFRModel = mongoose.model('APIGenshinDB', schema, "charactersFR")
+const CharacterENModel = mongoose.model('character', schema, "charactersEN")
+const CharacterFRModel = mongoose.model('character', schema, "charactersFR")
+
+module.exports = { CharacterENModel, CharacterFRModel }
