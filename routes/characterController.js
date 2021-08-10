@@ -13,11 +13,11 @@ function deleteAccent(str)
 router.get('/:lang/all', (req, res) => {
     if(req.params.lang == 'en-us')
     {
-        const chars = genshin.characters('names', {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
-        chars.forEach(char => {
-            CharacterENModel.findOne({name: char.name}, (err, docs) => {
-                if(!docs)
-                {
+        CharacterENModel.findOne({}, (err, docs) => {
+            if(!docs)
+            {
+                const chars = genshin.characters('names', {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
+                chars.forEach(char => {
                     if(char.element != 'None') char['element'] = genshin.elements(char.element, {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
                     let stats = []
                     for(let i = 1; i <= 90; i++) {
@@ -46,47 +46,46 @@ router.get('/:lang/all', (req, res) => {
                     tmp.save((err, docs) => {
                         if(err) console.log('Character save error : ' + err)
                     })
-                }
-                else
+                })
+            }
+            else
+            {
+                if((new Date()).getTime() - docs.insertDate.getTime() > 10000/*86400000 /* = 1000ms x 60s x 60m x 24h  */)
                 {
-                    if((new Date()).getTime() - docs.insertDate.getTime() > 10000/*86400000 /* = 1000ms x 60s x 60m x 24h  */)
-                    {
-                        if(char.element != 'None') char['element'] = genshin.elements(char.element, {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
-                        CharacterENModel.deleteOne({name: char.name}).exec()
-                        char['insertDate'] = Date.now()
-                        let stats = []
-                        console.log(char.stats)
-                        for(let i = 1; i <= 90; i++) {
-                            stats.push(char.stats(i))
-                            if([20, 40, 50, 60, 70, 80].includes(i)) stats.push(char.stats(i, '+'))
-                        }
-                        let tmpChar = {...char}
-                        tmpChar.stats = stats
-                        char['talents'] = genshin.talents(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
-                        let cons = genshin.constellations(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
-                        char['constellations'] = []
-                        if(cons != undefined) {
-                            Object.keys(cons).forEach(elem => {
-                                if(['c1', 'c2', 'c3', 'c4', 'c5', 'c6'].includes(elem))
-                                {
-                                    let c = {
-                                        num: parseInt(elem.substring(1)),
-                                        name: cons[elem].name,
-                                        effect: cons[elem].effect,
-                                        image: cons.images[elem]
-                                    }
-                                    char.constellations.push(c)
+                    if(char.element != 'None') char['element'] = genshin.elements(char.element, {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
+                    CharacterENModel.deleteOne({name: char.name}).exec()
+                    char['insertDate'] = Date.now()
+                    let stats = []
+                    console.log(char.stats)
+                    for(let i = 1; i <= 90; i++) {
+                        stats.push(char.stats(i))
+                        if([20, 40, 50, 60, 70, 80].includes(i)) stats.push(char.stats(i, '+'))
+                    }
+                    let tmpChar = {...char}
+                    tmpChar.stats = stats
+                    char['talents'] = genshin.talents(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
+                    let cons = genshin.constellations(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
+                    char['constellations'] = []
+                    if(cons != undefined) {
+                        Object.keys(cons).forEach(elem => {
+                            if(['c1', 'c2', 'c3', 'c4', 'c5', 'c6'].includes(elem))
+                            {
+                                let c = {
+                                    num: parseInt(elem.substring(1)),
+                                    name: cons[elem].name,
+                                    effect: cons[elem].effect,
+                                    image: cons.images[elem]
                                 }
-                            })
-                        }
-                        let tmp = new CharacterENModel(tmpChar)
-                        tmp.save((err, docs) => {
-                            if(err) console.log('Character save error : ' + err)
+                                char.constellations.push(c)
+                            }
                         })
                     }
+                    let tmp = new CharacterENModel(tmpChar)
+                    tmp.save((err, docs) => {
+                        if(err) console.log('Character save error : ' + err)
+                    })
                 }
-                if(err) console.log('Find one element error: ' + err)
-            })
+            }
         })
         setTimeout(() => {
             CharacterENModel.find((err, docs) => {
@@ -97,21 +96,20 @@ router.get('/:lang/all', (req, res) => {
     }
     else if (req.params.lang = 'fr-fr')
     {
-        const chars = genshin.characters('names', {matchCategories: true, verboseCategories: true, resultLanguage: 'French'})
-        chars.forEach(char => {
-            CharacterFRModel.findOne({name: char.name}, (err, docs) => {
-                if(!docs)
-                {
-                    if(char.element != 'None') char['element'] = genshin.elements(deleteAccent(char.element), {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
+        CharacterFRModel.findOne({}, (err, docs) => {
+            if(!docs)
+            {
+                const chars = genshin.characters('names', {matchCategories: true, verboseCategories: true, resultLanguage: 'French'})
+                chars.forEach(char => {
+                    if(char.element != 'None') char['element'] = genshin.elements(char.element, {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
                     let stats = []
                     for(let i = 1; i <= 90; i++) {
                         stats.push(char.stats(i))
                         if([20, 40, 50, 60, 70, 80].includes(i)) stats.push(char.stats(i, '+'))
                     }
                     char.stats = stats
-                    console.log(genshin.talents(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French', queryLanguages: ['French']}))
-                    char['talents'] = genshin.talents(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French', queryLanguages: ['French']})
-                    let cons = genshin.constellations(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French', queryLanguages: ['French']})
+                    char['talents'] = genshin.talents(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French'})
+                    let cons = genshin.constellations(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French'})
                     char['constellations'] = []
                     if(cons != undefined) {
                         Object.keys(cons).forEach(elem => {
@@ -131,47 +129,46 @@ router.get('/:lang/all', (req, res) => {
                     tmp.save((err, docs) => {
                         if(err) console.log('Character save error : ' + err)
                     })
-                }
-                else
+                })
+            }
+            else
+            {
+                if((new Date()).getTime() - docs.insertDate.getTime() > 10000/*86400000 /* = 1000ms x 60s x 60m x 24h  */)
                 {
-                    if((new Date()).getTime() - docs.insertDate.getTime() > 86400000 /* = 1000ms x 60s x 60m x 24h  */)
-                    {
-                        if(char.element != 'None') char['element'] = genshin.elements(deleteAccent(char.element), {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
-                        CharacterFRModel.deleteOne({name: char.name}).exec()
-                        char['insertDate'] = Date.now()
-                        let stats = []
-                        console.log(char.stats)
-                        for(let i = 1; i <= 90; i++) {
-                            stats.push(char.stats(i))
-                            if([20, 40, 50, 60, 70, 80].includes(i)) stats.push(char.stats(i, '+'))
-                        }
-                        let tmpChar = {...char}
-                        tmpChar.stats = stats
-                        char['talents'] = genshin.talents(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French', queryLanguages: ['French']})
-                        let cons = genshin.constellations(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French', queryLanguages: ['French']})
-                        char['constellations'] = []
-                        if(cons != undefined) {
-                            Object.keys(cons).forEach(elem => {
-                                if(['c1', 'c2', 'c3', 'c4', 'c5', 'c6'].includes(elem))
-                                {
-                                    let c = {
-                                        num: parseInt(elem.substring(1)),
-                                        name: cons[elem].name,
-                                        effect: cons[elem].effect,
-                                        image: cons.images[elem]
-                                    }
-                                    char.constellations.push(c)
+                    if(char.element != 'None') char['element'] = genshin.elements(char.element, {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
+                    CharacterFRModel.deleteOne({name: char.name}).exec()
+                    char['insertDate'] = Date.now()
+                    let stats = []
+                    console.log(char.stats)
+                    for(let i = 1; i <= 90; i++) {
+                        stats.push(char.stats(i))
+                        if([20, 40, 50, 60, 70, 80].includes(i)) stats.push(char.stats(i, '+'))
+                    }
+                    let tmpChar = {...char}
+                    tmpChar.stats = stats
+                    char['talents'] = genshin.talents(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French'})
+                    let cons = genshin.constellations(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French'})
+                    char['constellations'] = []
+                    if(cons != undefined) {
+                        Object.keys(cons).forEach(elem => {
+                            if(['c1', 'c2', 'c3', 'c4', 'c5', 'c6'].includes(elem))
+                            {
+                                let c = {
+                                    num: parseInt(elem.substring(1)),
+                                    name: cons[elem].name,
+                                    effect: cons[elem].effect,
+                                    image: cons.images[elem]
                                 }
-                            })
-                        }
-                        let tmp = new CharacterFRModel(tmpChar)
-                        tmp.save((err, docs) => {
-                            if(err) console.log('Character save error : ' + err)
+                                char.constellations.push(c)
+                            }
                         })
                     }
+                    let tmp = new CharacterFRModel(tmpChar)
+                    tmp.save((err, docs) => {
+                        if(err) console.log('Character save error : ' + err)
+                    })
                 }
-                if(err) console.log('Find one element error: ' + err)
-            })
+            }
         })
         setTimeout(() => {
             CharacterFRModel.find((err, docs) => {

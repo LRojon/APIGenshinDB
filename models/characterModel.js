@@ -55,14 +55,7 @@ let schema = new Schema({
     },
     weapontype: String,
     talents: Object,
-    constellations: [
-        {
-            num: Number,
-            name: String,
-            effect: String,
-            image: String
-        }
-    ],
+    constellations: [Object],
     insertDate: {type: Date, default: Date.now()}
 })
 const CharacterENModel = mongoose.model('character', schema, "charactersEN")
