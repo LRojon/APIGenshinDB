@@ -2764,45 +2764,41 @@ router.get('/', (req, res) => {
     })).save((err, docs) => {if(err) console.log("Build error : " + err)})
 
     // Hydro 4 stars
-    // Xingqiu Sub DPS
+    // Xingqiu Sub DPS                                                          DONE
     (new BuildENModel({
-        characterName: 'Amber',
-        role: 'DPS',
+        characterName: 'Xingqiu',
+        role: 'Sub DPS',
         weapons: [
             {
-                name: 'Amos\' Bow',
+                name: 'Sacrificial Sword',
                 priority: 1
             },
             {
-                name: 'Prototype Crescent',
+                name: 'Primordial Jade Cutter',
                 priority: 2
             },
             {
-                name: 'Skyward Harp',
+                name: 'Mistsplitter Reforged',
                 priority: 3
             },
             {
-                name: 'Sharpshooter\'s Oath',
+                name: 'Skyward Blade',
                 priority: 4
             },
             {
-                name: 'Blackcliff Warbow',
+                name: 'Favonius Sword',
                 priority: 5
             },
             {
-                name: 'Hamayumi',
+                name: 'Festering Desire',
                 priority: 6
-            },
-            {
-                name: 'Viridescent Hunt',
-                priority: 7
-            },
+            }
         ],
         artifacts: {
             mainStats: {
-                sands: ["ATK%", "Elemental Mastery"],
-                goblet: ["Pyro DMG"],
-                circlet: ["Crit DMG"]
+                sands: ["Energy Recharge", "ATK%"],
+                goblet: ["Hydro DMG"],
+                circlet: ["Crit Rate", "Crit DMG"]
             },
             subStats: [
                 {
@@ -2810,19 +2806,19 @@ router.get('/', (req, res) => {
                     priority: 1
                 },
                 {
-                    stat: "ATK%",
+                    stat: "Energy Recharge",
                     priority: 2
                 },
                 {
-                    stat: "Elemental Mastery",
+                    stat: "ATK%",
                     priority: 3
                 },
                 {
-                    stat: "Energy Recharge",
+                    stat: "Crit Rate",
                     priority: 4
                 },
                 {
-                    stat: "ATK",
+                    stat: "Elemental Mastery",
                     priority: 5
                 }
             ],
@@ -2831,8 +2827,12 @@ router.get('/', (req, res) => {
                     priority: 1,
                     bonus: [
                         {
-                            set: "Wanderer's Troupe",
-                            pieces: 4
+                            set: "Noblesse Oblige",
+                            pieces: 2
+                        },
+                        {
+                            set: "Heart of Depth",
+                            pieces: 2
                         }
                     ]
                 },
@@ -2840,7 +2840,7 @@ router.get('/', (req, res) => {
                     priority: 2,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
+                            set: "Emblem of Severed Fate",
                             pieces: 4
                         }
                     ]
@@ -2849,20 +2849,7 @@ router.get('/', (req, res) => {
                     priority: 3,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
-                            set: "Wanderer's Troupe",
-                            pieces: 2
-                        }
-                    ]
-                },
-                {
-                    priority: 4,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
+                            set: "Noblesse Oblige",
                             pieces: 2
                         },
                         {
@@ -2871,53 +2858,66 @@ router.get('/', (req, res) => {
                         }
                     ]
                 },
+                {
+                    priority: 4,
+                    bonus: [
+                        {
+                            set: "Noblesse Oblige",
+                            pieces: 2
+                        },
+                        {
+                            set: "Emblem of Severed Fate",
+                            pieces: 2
+                        }
+                    ]
+                },
             ],
             talent: {
-                normal: 1,
-                skill: 3, 
-                burst: 2
+                normal: 3,
+                skill: 2,
+                burst: 1
             }
         }
     })).save((err, docs) => {if(err) console.log("Build error : " + err)})
-    // Barbara DPS
+    // Barbara DPS                                                              DONE
     (new BuildENModel({
-        characterName: 'Amber',
+        characterName: 'Barbara',
         role: 'DPS',
         weapons: [
             {
-                name: 'Amos\' Bow',
+                name: 'Skyward Atlas',
                 priority: 1
             },
             {
-                name: 'Prototype Crescent',
+                name: 'Lost Prayer to the Sacred Winds',
                 priority: 2
             },
             {
-                name: 'Skyward Harp',
+                name: 'The Widsith',
                 priority: 3
             },
             {
-                name: 'Sharpshooter\'s Oath',
+                name: 'Dodoco Tales',
                 priority: 4
             },
             {
-                name: 'Blackcliff Warbow',
+                name: 'Memory of Dust',
                 priority: 5
             },
             {
-                name: 'Hamayumi',
+                name: 'Solar Pearl',
                 priority: 6
             },
             {
-                name: 'Viridescent Hunt',
+                name: 'Blackcliff Agate',
                 priority: 7
             },
         ],
         artifacts: {
             mainStats: {
-                sands: ["ATK%", "Elemental Mastery"],
-                goblet: ["Pyro DMG"],
-                circlet: ["Crit DMG"]
+                sands: ["ATK%"],
+                goblet: ["Hydro DMG"],
+                circlet: ["Crit DMG", "Crit Rate"]
             },
             subStats: [
                 {
@@ -2929,11 +2929,11 @@ router.get('/', (req, res) => {
                     priority: 2
                 },
                 {
-                    stat: "Elemental Mastery",
+                    stat: "Crit Rate",
                     priority: 3
                 },
                 {
-                    stat: "Energy Recharge",
+                    stat: "Elemental Mastery",
                     priority: 4
                 },
                 {
@@ -2946,7 +2946,7 @@ router.get('/', (req, res) => {
                     priority: 1,
                     bonus: [
                         {
-                            set: "Wanderer's Troupe",
+                            set: "Shimenawa's Reminiscence",
                             pieces: 4
                         }
                     ]
@@ -2955,7 +2955,7 @@ router.get('/', (req, res) => {
                     priority: 2,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
+                            set: "Heart of Depth",
                             pieces: 4
                         }
                     ]
@@ -2964,12 +2964,8 @@ router.get('/', (req, res) => {
                     priority: 3,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
                             set: "Wanderer's Troupe",
-                            pieces: 2
+                            pieces: 4
                         }
                     ]
                 },
@@ -2977,7 +2973,7 @@ router.get('/', (req, res) => {
                     priority: 4,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
+                            set: "Heart of Depth",
                             pieces: 2
                         },
                         {
@@ -2989,71 +2985,51 @@ router.get('/', (req, res) => {
             ],
             talent: {
                 normal: 1,
-                skill: 3, 
-                burst: 2
+                skill: 2, 
+                burst: 3
             }
         }
     })).save((err, docs) => {if(err) console.log("Build error : " + err)})
-    // Barbara Support
+    // Barbara Support                                                          DONE 
     (new BuildENModel({
-        characterName: 'Amber',
-        role: 'DPS',
+        characterName: 'Barbara',
+        role: 'Support',
         weapons: [
             {
-                name: 'Amos\' Bow',
+                name: 'Prototype Amber',
                 priority: 1
             },
             {
-                name: 'Prototype Crescent',
+                name: 'Thrilling Tales of Dragon Slayers',
                 priority: 2
             },
             {
-                name: 'Skyward Harp',
+                name: 'Favonius Codex',
                 priority: 3
             },
             {
-                name: 'Sharpshooter\'s Oath',
+                name: 'Wine and Song',
                 priority: 4
-            },
-            {
-                name: 'Blackcliff Warbow',
-                priority: 5
-            },
-            {
-                name: 'Hamayumi',
-                priority: 6
-            },
-            {
-                name: 'Viridescent Hunt',
-                priority: 7
-            },
+            }
         ],
         artifacts: {
             mainStats: {
-                sands: ["ATK%", "Elemental Mastery"],
-                goblet: ["Pyro DMG"],
-                circlet: ["Crit DMG"]
+                sands: ["Energy Recharge", "HP%"],
+                goblet: ["HP%"],
+                circlet: ["Healing Bonus"]
             },
             subStats: [
                 {
-                    stat: "Crit DMG",
+                    stat: "HP%",
                     priority: 1
                 },
                 {
-                    stat: "ATK%",
+                    stat: "Energy Recharge",
                     priority: 2
                 },
                 {
-                    stat: "Elemental Mastery",
+                    stat: "HP",
                     priority: 3
-                },
-                {
-                    stat: "Energy Recharge",
-                    priority: 4
-                },
-                {
-                    stat: "ATK",
-                    priority: 5
                 }
             ],
             sets: [
@@ -3061,7 +3037,7 @@ router.get('/', (req, res) => {
                     priority: 1,
                     bonus: [
                         {
-                            set: "Wanderer's Troupe",
+                            set: "Maiden Beloved",
                             pieces: 4
                         }
                     ]
@@ -3070,8 +3046,12 @@ router.get('/', (req, res) => {
                     priority: 2,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
-                            pieces: 4
+                            set: "Maiden Beloved",
+                            pieces: 2
+                        },
+                        {
+                            set: "Tenacity of the Millelith",
+                            pieces: 2
                         }
                     ]
                 },
@@ -3079,12 +3059,8 @@ router.get('/', (req, res) => {
                     priority: 3,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
-                            set: "Wanderer's Troupe",
-                            pieces: 2
+                            set: "Noblesse Oblige",
+                            pieces: 4
                         }
                     ]
                 },
@@ -3092,63 +3068,63 @@ router.get('/', (req, res) => {
                     priority: 4,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
+                            set: "Maiden Beloved",
                             pieces: 2
                         },
                         {
-                            set: "Shimenawa's Reminiscence",
+                            set: "The Exile",
                             pieces: 2
                         }
                     ]
                 },
             ],
             talent: {
-                normal: 1,
-                skill: 3, 
+                normal: 3,
+                skill: 1, 
                 burst: 2
             }
         }
     })).save((err, docs) => {if(err) console.log("Build error : " + err)})
     // Hydro 5 stars
-    // Tartaglia DPS
+    // Tartaglia DPS                                                            DONE
     (new BuildENModel({
-        characterName: 'Amber',
+        characterName: 'Tartaglia',
         role: 'DPS',
         weapons: [
             {
-                name: 'Amos\' Bow',
+                name: 'Thundering Pulse',
                 priority: 1
             },
             {
-                name: 'Prototype Crescent',
+                name: 'Skyward Harp',
                 priority: 2
             },
             {
-                name: 'Skyward Harp',
+                name: 'Amos\' Bow',
                 priority: 3
             },
             {
-                name: 'Sharpshooter\'s Oath',
+                name: 'Viridescent Hunt',
                 priority: 4
             },
             {
-                name: 'Blackcliff Warbow',
+                name: 'Rust',
                 priority: 5
             },
             {
-                name: 'Hamayumi',
+                name: 'Prototype Crescent',
                 priority: 6
             },
             {
-                name: 'Viridescent Hunt',
+                name: 'Blackcliff Warbow',
                 priority: 7
             },
         ],
         artifacts: {
             mainStats: {
                 sands: ["ATK%", "Elemental Mastery"],
-                goblet: ["Pyro DMG"],
-                circlet: ["Crit DMG"]
+                goblet: ["Hydro DMG"],
+                circlet: ["Crit DMG", "Crit Rate"]
             },
             subStats: [
                 {
@@ -3156,19 +3132,19 @@ router.get('/', (req, res) => {
                     priority: 1
                 },
                 {
-                    stat: "ATK%",
+                    stat: "Crit Rate",
                     priority: 2
                 },
                 {
-                    stat: "Elemental Mastery",
+                    stat: "ATK%",
                     priority: 3
                 },
                 {
-                    stat: "Energy Recharge",
+                    stat: "Elemental Mastery",
                     priority: 4
                 },
                 {
-                    stat: "ATK",
+                    stat: "Energy Recharge",
                     priority: 5
                 }
             ],
@@ -3177,7 +3153,7 @@ router.get('/', (req, res) => {
                     priority: 1,
                     bonus: [
                         {
-                            set: "Wanderer's Troupe",
+                            set: "Heart of Depth",
                             pieces: 4
                         }
                     ]
@@ -3186,8 +3162,12 @@ router.get('/', (req, res) => {
                     priority: 2,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
-                            pieces: 4
+                            set: "Noblesse Oblige",
+                            pieces: 2
+                        },
+                        {
+                            set: "Heart of Depth",
+                            pieces: 2
                         }
                     ]
                 },
@@ -3195,11 +3175,11 @@ router.get('/', (req, res) => {
                     priority: 3,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
+                            set: "Wanderer's Troupe",
                             pieces: 2
                         },
                         {
-                            set: "Wanderer's Troupe",
+                            set: "Shimenawa's Reminiscence",
                             pieces: 2
                         }
                     ]
@@ -3208,7 +3188,7 @@ router.get('/', (req, res) => {
                     priority: 4,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
+                            set: "Heart of Depth",
                             pieces: 2
                         },
                         {
@@ -3219,23 +3199,23 @@ router.get('/', (req, res) => {
                 },
             ],
             talent: {
-                normal: 1,
-                skill: 3, 
+                normal: 3,
+                skill: 1, 
                 burst: 2
             }
         }
     })).save((err, docs) => {if(err) console.log("Build error : " + err)})
-    // Tartaglia Sub DPS
+    // Tartaglia Sub DPS                                                        DONE
     (new BuildENModel({
-        characterName: 'Amber',
-        role: 'DPS',
+        characterName: 'Tartaglia',
+        role: 'Sub DPS',
         weapons: [
             {
-                name: 'Amos\' Bow',
+                name: 'Stringless',
                 priority: 1
             },
             {
-                name: 'Prototype Crescent',
+                name: 'Alley Hunter',
                 priority: 2
             },
             {
@@ -3243,27 +3223,27 @@ router.get('/', (req, res) => {
                 priority: 3
             },
             {
-                name: 'Sharpshooter\'s Oath',
+                name: 'Amos\' Bow',
                 priority: 4
             },
             {
-                name: 'Blackcliff Warbow',
+                name: 'Viridescent Hunt',
                 priority: 5
             },
             {
-                name: 'Hamayumi',
+                name: 'Windblume Ode',
                 priority: 6
             },
             {
-                name: 'Viridescent Hunt',
+                name: 'Blackcliff Warbow',
                 priority: 7
             },
         ],
         artifacts: {
             mainStats: {
                 sands: ["ATK%", "Elemental Mastery"],
-                goblet: ["Pyro DMG"],
-                circlet: ["Crit DMG"]
+                goblet: ["Hydro DMG"],
+                circlet: ["Crit DMG", "Crit Rate"]
             },
             subStats: [
                 {
@@ -3292,8 +3272,12 @@ router.get('/', (req, res) => {
                     priority: 1,
                     bonus: [
                         {
-                            set: "Wanderer's Troupe",
-                            pieces: 4
+                            set: "Noblesse Oblige",
+                            pieces: 2
+                        },
+                        {
+                            set: "Heart of Depth",
+                            pieces: 2
                         }
                     ]
                 },
@@ -3301,8 +3285,12 @@ router.get('/', (req, res) => {
                     priority: 2,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
-                            pieces: 4
+                            set: "Noblesse Oblige",
+                            pieces: 2
+                        },
+                        {
+                            set: "Wanderer's Troupe",
+                            pieces: 2
                         }
                     ]
                 },
@@ -3310,7 +3298,7 @@ router.get('/', (req, res) => {
                     priority: 3,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
+                            set: "Shimenawa's Reminiscence",
                             pieces: 2
                         },
                         {
@@ -3323,7 +3311,7 @@ router.get('/', (req, res) => {
                     priority: 4,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
+                            set: "Noblesse Oblige",
                             pieces: 2
                         },
                         {
@@ -3334,51 +3322,51 @@ router.get('/', (req, res) => {
                 },
             ],
             talent: {
-                normal: 1,
-                skill: 3, 
-                burst: 2
+                normal: 3,
+                skill: 2, 
+                burst: 1
             }
         }
     })).save((err, docs) => {if(err) console.log("Build error : " + err)})
-    // Mona DPS
+    // Mona DPS                                                                 DONE
     (new BuildENModel({
-        characterName: 'Amber',
+        characterName: 'Mona',
         role: 'DPS',
         weapons: [
             {
-                name: 'Amos\' Bow',
+                name: 'Skyward Atlas',
                 priority: 1
             },
             {
-                name: 'Prototype Crescent',
+                name: 'The Widsith',
                 priority: 2
             },
             {
-                name: 'Skyward Harp',
+                name: 'Lost Prayer to the Sacred Winds',
                 priority: 3
             },
             {
-                name: 'Sharpshooter\'s Oath',
+                name: 'Solar Pearl',
                 priority: 4
             },
             {
-                name: 'Blackcliff Warbow',
+                name: 'Dodoco Tales',
                 priority: 5
             },
             {
-                name: 'Hamayumi',
+                name: 'Blackcliff Agate',
                 priority: 6
             },
             {
-                name: 'Viridescent Hunt',
+                name: 'Mappa Mare',
                 priority: 7
             },
         ],
         artifacts: {
             mainStats: {
-                sands: ["ATK%", "Elemental Mastery"],
-                goblet: ["Pyro DMG"],
-                circlet: ["Crit DMG"]
+                sands: ["ATK%"],
+                goblet: ["Hydro DMG"],
+                circlet: ["Crit DMG", "Crit Rate"]
             },
             subStats: [
                 {
@@ -3386,19 +3374,19 @@ router.get('/', (req, res) => {
                     priority: 1
                 },
                 {
-                    stat: "ATK%",
+                    stat: "Crit Rate",
                     priority: 2
                 },
                 {
-                    stat: "Elemental Mastery",
+                    stat: "ATK%",
                     priority: 3
                 },
                 {
-                    stat: "Energy Recharge",
+                    stat: "Elemental Mastery",
                     priority: 4
                 },
                 {
-                    stat: "ATK",
+                    stat: "Energy Recharge",
                     priority: 5
                 }
             ],
@@ -3407,7 +3395,7 @@ router.get('/', (req, res) => {
                     priority: 1,
                     bonus: [
                         {
-                            set: "Wanderer's Troupe",
+                            set: "Heart of Depth",
                             pieces: 4
                         }
                     ]
@@ -3416,8 +3404,12 @@ router.get('/', (req, res) => {
                     priority: 2,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
-                            pieces: 4
+                            set: "Noblesse Oblige",
+                            pieces: 2
+                        },
+                        {
+                            set: "Heart of Depth",
+                            pieces: 2
                         }
                     ]
                 },
@@ -3425,7 +3417,7 @@ router.get('/', (req, res) => {
                     priority: 3,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
+                            set: "Noblesse Oblige",
                             pieces: 2
                         },
                         {
@@ -3438,7 +3430,7 @@ router.get('/', (req, res) => {
                     priority: 4,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
+                            set: "Heart of Depth",
                             pieces: 2
                         },
                         {
@@ -3449,51 +3441,51 @@ router.get('/', (req, res) => {
                 },
             ],
             talent: {
-                normal: 1,
+                normal: 2,
                 skill: 3, 
-                burst: 2
+                burst: 1
             }
         }
     })).save((err, docs) => {if(err) console.log("Build error : " + err)})
-    // Mona Sub DPS
+    // Mona Sub DPS                                                             DONE
     (new BuildENModel({
-        characterName: 'Amber',
-        role: 'DPS',
+        characterName: 'Mona',
+        role: 'Sub DPS',
         weapons: [
             {
-                name: 'Amos\' Bow',
+                name: 'The Widsith',
                 priority: 1
             },
             {
-                name: 'Prototype Crescent',
+                name: 'Skyward Atlas',
                 priority: 2
             },
             {
-                name: 'Skyward Harp',
+                name: 'Memory of Dust',
                 priority: 3
             },
             {
-                name: 'Sharpshooter\'s Oath',
+                name: 'Lost Prayer to the Sacred Winds',
                 priority: 4
             },
             {
-                name: 'Blackcliff Warbow',
+                name: 'Solar Pearl',
                 priority: 5
             },
             {
-                name: 'Hamayumi',
+                name: 'Mappa Mare',
                 priority: 6
             },
             {
-                name: 'Viridescent Hunt',
+                name: 'Thrilling Tales of Dragon Slayers',
                 priority: 7
             },
         ],
         artifacts: {
             mainStats: {
-                sands: ["ATK%", "Elemental Mastery"],
-                goblet: ["Pyro DMG"],
-                circlet: ["Crit DMG"]
+                sands: ["ATK%", "Energy Recharge", "Elemental Mastery"],
+                goblet: ["Hydro DMG"],
+                circlet: ["Crit DMG", "Crit Rate"]
             },
             subStats: [
                 {
@@ -3501,19 +3493,19 @@ router.get('/', (req, res) => {
                     priority: 1
                 },
                 {
-                    stat: "ATK%",
+                    stat: "Crit Rate",
                     priority: 2
                 },
                 {
-                    stat: "Elemental Mastery",
+                    stat: "Energy Recharge",
                     priority: 3
                 },
                 {
-                    stat: "Energy Recharge",
+                    stat: "ATK%",
                     priority: 4
                 },
                 {
-                    stat: "ATK",
+                    stat: "Elemental Mastery",
                     priority: 5
                 }
             ],
@@ -3522,7 +3514,7 @@ router.get('/', (req, res) => {
                     priority: 1,
                     bonus: [
                         {
-                            set: "Wanderer's Troupe",
+                            set: "Emblem of Severed Fate",
                             pieces: 4
                         }
                     ]
@@ -3531,8 +3523,12 @@ router.get('/', (req, res) => {
                     priority: 2,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
-                            pieces: 4
+                            set: "Noblesse Oblige",
+                            pieces: 2
+                        },
+                        {
+                            set: "Heart of Depth",
+                            pieces: 2
                         }
                     ]
                 },
@@ -3540,11 +3536,11 @@ router.get('/', (req, res) => {
                     priority: 3,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
+                            set: "Noblesse Oblige",
                             pieces: 2
                         },
                         {
-                            set: "Wanderer's Troupe",
+                            set: "Emblem of Severed Fate",
                             pieces: 2
                         }
                     ]
@@ -3553,7 +3549,7 @@ router.get('/', (req, res) => {
                     priority: 4,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
+                            set: "Noblesse Oblige",
                             pieces: 2
                         },
                         {
@@ -3564,124 +3560,9 @@ router.get('/', (req, res) => {
                 },
             ],
             talent: {
-                normal: 1,
-                skill: 3, 
-                burst: 2
-            }
-        }
-    })).save((err, docs) => {if(err) console.log("Build error : " + err)})
-    // Mona Support
-    (new BuildENModel({
-        characterName: 'Amber',
-        role: 'DPS',
-        weapons: [
-            {
-                name: 'Amos\' Bow',
-                priority: 1
-            },
-            {
-                name: 'Prototype Crescent',
-                priority: 2
-            },
-            {
-                name: 'Skyward Harp',
-                priority: 3
-            },
-            {
-                name: 'Sharpshooter\'s Oath',
-                priority: 4
-            },
-            {
-                name: 'Blackcliff Warbow',
-                priority: 5
-            },
-            {
-                name: 'Hamayumi',
-                priority: 6
-            },
-            {
-                name: 'Viridescent Hunt',
-                priority: 7
-            },
-        ],
-        artifacts: {
-            mainStats: {
-                sands: ["ATK%", "Elemental Mastery"],
-                goblet: ["Pyro DMG"],
-                circlet: ["Crit DMG"]
-            },
-            subStats: [
-                {
-                    stat: "Crit DMG",
-                    priority: 1
-                },
-                {
-                    stat: "ATK%",
-                    priority: 2
-                },
-                {
-                    stat: "Elemental Mastery",
-                    priority: 3
-                },
-                {
-                    stat: "Energy Recharge",
-                    priority: 4
-                },
-                {
-                    stat: "ATK",
-                    priority: 5
-                }
-            ],
-            sets: [
-                {
-                    priority: 1,
-                    bonus: [
-                        {
-                            set: "Wanderer's Troupe",
-                            pieces: 4
-                        }
-                    ]
-                },
-                {
-                    priority: 2,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 4
-                        }
-                    ]
-                },
-                {
-                    priority: 3,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
-                            set: "Wanderer's Troupe",
-                            pieces: 2
-                        }
-                    ]
-                },
-                {
-                    priority: 4,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
-                            set: "Shimenawa's Reminiscence",
-                            pieces: 2
-                        }
-                    ]
-                },
-            ],
-            talent: {
-                normal: 1,
-                skill: 3, 
-                burst: 2
+                normal: 3,
+                skill: 2, 
+                burst: 1
             }
         }
     })).save((err, docs) => {if(err) console.log("Build error : " + err)})
