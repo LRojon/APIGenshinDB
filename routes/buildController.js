@@ -4991,49 +4991,45 @@ router.get('/', (req, res) => {
     })).save((err, docs) => {if(err) console.log("Build error : " + err)})
 
     // Anemo 4 stars
-    // Sucrose EM
+    // Sucrose EM                                                               DONE
     (new BuildENModel({
-        characterName: 'Amber',
-        role: 'DPS',
+        characterName: 'Sucrose',
+        role: 'Support',
         weapons: [
             {
-                name: 'Amos\' Bow',
+                name: 'Sacrificial Fragments',
                 priority: 1
             },
             {
-                name: 'Prototype Crescent',
+                name: 'Magic Guide',
                 priority: 2
             },
             {
-                name: 'Skyward Harp',
+                name: 'Mappa Mare',
                 priority: 3
             },
             {
-                name: 'Sharpshooter\'s Oath',
+                name: 'The Widsith',
                 priority: 4
             },
             {
-                name: 'Blackcliff Warbow',
+                name: 'Thrilling Tales of Dragon Slayers',
                 priority: 5
             },
             {
-                name: 'Hamayumi',
+                name: 'Favonius Codex',
                 priority: 6
-            },
-            {
-                name: 'Viridescent Hunt',
-                priority: 7
-            },
+            }
         ],
         artifacts: {
             mainStats: {
-                sands: ["ATK%", "Elemental Mastery"],
-                goblet: ["Pyro DMG"],
-                circlet: ["Crit DMG"]
+                sands: ["Elemental Mastery"],
+                goblet: ["Elemental Mastery"],
+                circlet: ["Elemental Mastery"]
             },
             subStats: [
                 {
-                    stat: "Crit DMG",
+                    stat: "Elemental Mastery",
                     priority: 1
                 },
                 {
@@ -5041,15 +5037,15 @@ router.get('/', (req, res) => {
                     priority: 2
                 },
                 {
-                    stat: "Elemental Mastery",
+                    stat: "Crit Rate",
                     priority: 3
                 },
                 {
-                    stat: "Energy Recharge",
+                    stat: "Crit DMG",
                     priority: 4
                 },
                 {
-                    stat: "ATK",
+                    stat: "Energy Recharge",
                     priority: 5
                 }
             ],
@@ -5058,7 +5054,7 @@ router.get('/', (req, res) => {
                     priority: 1,
                     bonus: [
                         {
-                            set: "Wanderer's Troupe",
+                            set: "Viridescent Venerer",
                             pieces: 4
                         }
                     ]
@@ -5067,7 +5063,7 @@ router.get('/', (req, res) => {
                     priority: 2,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
+                            set: "Instructor",
                             pieces: 4
                         }
                     ]
@@ -5076,7 +5072,7 @@ router.get('/', (req, res) => {
                     priority: 3,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
+                            set: "Instructor",
                             pieces: 2
                         },
                         {
@@ -5089,83 +5085,71 @@ router.get('/', (req, res) => {
                     priority: 4,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
+                            set: "Viridescent Venerer",
                             pieces: 2
                         },
                         {
-                            set: "Shimenawa's Reminiscence",
+                            set: "Wanderer's Troupe",
                             pieces: 2
                         }
                     ]
                 },
             ],
             talent: {
-                normal: 1,
-                skill: 3, 
+                normal: 3,
+                skill: 1, 
                 burst: 2
             }
         }
     })).save((err, docs) => {if(err) console.log("Build error : " + err)})
-    // Sayu EM
+    // Sayu EM                                                                  DONE
     (new BuildENModel({
-        characterName: 'Amber',
-        role: 'DPS',
+        characterName: 'Sayu',
+        role: 'Sub DPS',
         weapons: [
             {
-                name: 'Amos\' Bow',
+                name: 'Wolf\'s Gravestone',
                 priority: 1
             },
             {
-                name: 'Prototype Crescent',
+                name: 'Sacrificial Greatsword',
                 priority: 2
             },
             {
-                name: 'Skyward Harp',
+                name: 'Katsuragikiri Nagamasa',
                 priority: 3
             },
             {
-                name: 'Sharpshooter\'s Oath',
+                name: 'Favonius Greatsword',
                 priority: 4
             },
             {
-                name: 'Blackcliff Warbow',
+                name: 'Rainslasher',
                 priority: 5
             },
             {
-                name: 'Hamayumi',
+                name: 'Bloodstained Greatsword',
                 priority: 6
-            },
-            {
-                name: 'Viridescent Hunt',
-                priority: 7
-            },
+            }
         ],
         artifacts: {
             mainStats: {
-                sands: ["ATK%", "Elemental Mastery"],
-                goblet: ["Pyro DMG"],
-                circlet: ["Crit DMG"]
+                sands: ["Energy Recharge", "Elemental Mastery"],
+                goblet: ["Elemental Mastery", "ATK%"],
+                circlet: ["Elemental Mastery", "Healing Bonus"]
             },
             subStats: [
                 {
-                    stat: "Crit DMG",
+                    stat: "Energy Recharge",
                     priority: 1
                 },
                 {
-                    stat: "ATK%",
+                    stat: "Elemental Mastery",
                     priority: 2
                 },
                 {
-                    stat: "Elemental Mastery",
+                    stat: "ATK%",
                     priority: 3
-                },
-                {
-                    stat: "Energy Recharge",
-                    priority: 4
-                },
-                {
-                    stat: "ATK",
-                    priority: 5
                 }
             ],
             sets: [
@@ -5173,7 +5157,7 @@ router.get('/', (req, res) => {
                     priority: 1,
                     bonus: [
                         {
-                            set: "Wanderer's Troupe",
+                            set: "Viridescent Venerer",
                             pieces: 4
                         }
                     ]
@@ -5182,7 +5166,7 @@ router.get('/', (req, res) => {
                     priority: 2,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
+                            set: "Noblesse Oblige",
                             pieces: 4
                         }
                     ]
@@ -5191,76 +5175,63 @@ router.get('/', (req, res) => {
                     priority: 3,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
+                            set: "Emblem of Severed Fates",
                             pieces: 2
                         },
                         {
-                            set: "Wanderer's Troupe",
+                            set: "Maiden's Beloved",
                             pieces: 2
                         }
                     ]
-                },
-                {
-                    priority: 4,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
-                            set: "Shimenawa's Reminiscence",
-                            pieces: 2
-                        }
-                    ]
-                },
+                }
             ],
             talent: {
-                normal: 1,
-                skill: 3, 
-                burst: 2
+                normal: 3,
+                skill: 2, 
+                burst: 1
             }
         }
     })).save((err, docs) => {if(err) console.log("Build error : " + err)})
     // Anemo 5 stars
-    // Traveler Anemo DPS
+    // Traveler Anemo DPS                                                       DONE
     (new BuildENModel({
-        characterName: 'Amber',
+        characterName: 'Traveler (Anemo)',
         role: 'DPS',
         weapons: [
             {
-                name: 'Amos\' Bow',
+                name: 'Primordial Jade Cutter',
                 priority: 1
             },
             {
-                name: 'Prototype Crescent',
+                name: 'Skyward Blade',
                 priority: 2
             },
             {
-                name: 'Skyward Harp',
+                name: 'Summit Shaper',
                 priority: 3
             },
             {
-                name: 'Sharpshooter\'s Oath',
+                name: 'Festering Desire',
                 priority: 4
             },
             {
-                name: 'Blackcliff Warbow',
+                name: 'The Flute',
                 priority: 5
             },
             {
-                name: 'Hamayumi',
+                name: 'Lion\'s Roar',
                 priority: 6
             },
             {
-                name: 'Viridescent Hunt',
+                name: 'Favonius Sword',
                 priority: 7
             },
         ],
         artifacts: {
             mainStats: {
-                sands: ["ATK%", "Elemental Mastery"],
-                goblet: ["Pyro DMG"],
-                circlet: ["Crit DMG"]
+                sands: ["ATK%", "Energy Recharge"],
+                goblet: ["Anemo DMG"],
+                circlet: ["Crit Rate", "Crit DMG"]
             },
             subStats: [
                 {
@@ -5272,7 +5243,7 @@ router.get('/', (req, res) => {
                     priority: 2
                 },
                 {
-                    stat: "Elemental Mastery",
+                    stat: "Crit Rate",
                     priority: 3
                 },
                 {
@@ -5280,7 +5251,7 @@ router.get('/', (req, res) => {
                     priority: 4
                 },
                 {
-                    stat: "ATK",
+                    stat: "Elemental Mastery",
                     priority: 5
                 }
             ],
@@ -5289,7 +5260,7 @@ router.get('/', (req, res) => {
                     priority: 1,
                     bonus: [
                         {
-                            set: "Wanderer's Troupe",
+                            set: "Viridescent Venerer",
                             pieces: 4
                         }
                     ]
@@ -5298,29 +5269,7 @@ router.get('/', (req, res) => {
                     priority: 2,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
-                            pieces: 4
-                        }
-                    ]
-                },
-                {
-                    priority: 3,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
-                            set: "Wanderer's Troupe",
-                            pieces: 2
-                        }
-                    ]
-                },
-                {
-                    priority: 4,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
+                            set: "Viridescent Venerer",
                             pieces: 2
                         },
                         {
@@ -5329,6 +5278,589 @@ router.get('/', (req, res) => {
                         }
                     ]
                 },
+                {
+                    priority: 3,
+                    bonus: [
+                        {
+                            set: "Noblesse Oblige",
+                            pieces: 2
+                        },
+                        {
+                            set: "Viridescent Venerer",
+                            pieces: 2
+                        }
+                    ]
+                },
+                {
+                    priority: 4,
+                    bonus: [
+                        {
+                            set: "Martial Artist",
+                            pieces: 2
+                        },
+                        {
+                            set: "Shimenawa's Reminiscence",
+                            pieces: 2
+                        }
+                    ]
+                },
+            ],
+            talent: {
+                normal: 3,
+                skill: 1, 
+                burst: 2
+            }
+        }
+    })).save((err, docs) => {if(err) console.log("Build error : " + err)})
+    // Traveler Phys DPS                                                        DONE
+    (new BuildENModel({
+        characterName: 'Traveler (Anemo)',
+        role: 'DPS',
+        weapons: [
+            {
+                name: 'Aquila Favonia',
+                priority: 1
+            },
+            {
+                name: 'Summit Shaper',
+                priority: 2
+            },
+            {
+                name: 'Primordial Jade Cutter',
+                priority: 3
+            },
+            {
+                name: 'Blackcliff Longsword',
+                priority: 4
+            },
+            {
+                name: 'The Black Sword',
+                priority: 5
+            },
+            {
+                name: 'Prototype Rancour',
+                priority: 6
+            },
+            {
+                name: 'Harbinger of Dawn',
+                priority: 7
+            },
+        ],
+        artifacts: {
+            mainStats: {
+                sands: ["ATK%"],
+                goblet: ["Physical DMG"],
+                circlet: ["Crit Rate", "Crit DMG"]
+            },
+            subStats: [
+                {
+                    stat: "Crit DMG",
+                    priority: 1
+                },
+                {
+                    stat: "ATK%",
+                    priority: 2
+                },
+                {
+                    stat: "Crit Rate",
+                    priority: 3
+                },
+                {
+                    stat: "ATK",
+                    priority: 4
+                },
+                {
+                    stat: "Energy Recharge",
+                    priority: 5
+                }
+            ],
+            sets: [
+                {
+                    priority: 1,
+                    bonus: [
+                        {
+                            set: "Pale Flame",
+                            pieces: 4
+                        }
+                    ]
+                },
+                {
+                    priority: 2,
+                    bonus: [
+                        {
+                            set: "Pale Flame",
+                            pieces: 2
+                        },
+                        {
+                            set: "Bloodstained Chivalry",
+                            pieces: 2
+                        }
+                    ]
+                },
+                {
+                    priority: 3,
+                    bonus: [
+                        {
+                            set: "Gladiator's Finale",
+                            pieces: 4
+                        }
+                    ]
+                },
+                {
+                    priority: 4,
+                    bonus: [
+                        {
+                            set: "Pale Flame",
+                            pieces: 2
+                        },
+                        {
+                            set: "Shimenawa's Reminiscence",
+                            pieces: 2
+                        }
+                    ]
+                },
+            ],
+            talent: {
+                normal: 1,
+                skill: 2, 
+                burst: 3
+            }
+        }
+    })).save((err, docs) => {if(err) console.log("Build error : " + err)})
+    // Jean DPS                                                                 DONE
+    (new BuildENModel({
+        characterName: 'Jean',
+        role: 'DPS',
+        weapons: [
+            {
+                name: 'Aquila Favonia',
+                priority: 1
+            },
+            {
+                name: 'Summit Shaper',
+                priority: 2
+            },
+            {
+                name: 'Primordial Jade Cutter',
+                priority: 3
+            },
+            {
+                name: 'Blackcliff Longsword',
+                priority: 4
+            },
+            {
+                name: 'The Black Sword',
+                priority: 5
+            },
+            {
+                name: 'Prototype Rancour',
+                priority: 6
+            }
+        ],
+        artifacts: {
+            mainStats: {
+                sands: ["ATK%"],
+                goblet: ["Physical DMG"],
+                circlet: ["Crit Rate", "Crit DMG"]
+            },
+            subStats: [
+                {
+                    stat: "Crit DMG",
+                    priority: 1
+                },
+                {
+                    stat: "Crit Rate",
+                    priority: 2
+                },
+                {
+                    stat: "ATK%",
+                    priority: 3
+                },
+                {
+                    stat: "Energy Recharge",
+                    priority: 4
+                },
+                {
+                    stat: "Elemental Mastery",
+                    priority: 5
+                }
+            ],
+            sets: [
+                {
+                    priority: 1,
+                    bonus: [
+                        {
+                            set: "Bloodstained Chivalry",
+                            pieces: 2
+                        },
+                        {
+                            set: "Pale Flame",
+                            pieces: 2
+                        }
+                    ]
+                },
+                {
+                    priority: 2,
+                    bonus: [
+                        {
+                            set: "Gladiator's Finale",
+                            pieces: 4
+                        }
+                    ]
+                },
+                {
+                    priority: 3,
+                    bonus: [
+                        {
+                            set: "Bloodstained Chivalry",
+                            pieces: 2
+                        },
+                        {
+                            set: "Pale Flame",
+                            pieces: 2
+                        }
+                    ]
+                },
+                {
+                    priority: 4,
+                    bonus: [
+                        {
+                            set: "Viridescent Venerer",
+                            pieces: 2
+                        },
+                        {
+                            set: "Shimenawa's Reminiscence",
+                            pieces: 2
+                        }
+                    ]
+                },
+            ],
+            talent: {
+                normal: 1,
+                skill: 2, 
+                burst: 3
+            }
+        }
+    })).save((err, docs) => {if(err) console.log("Build error : " + err)})
+    // Jean Support                                                             DONE
+    (new BuildENModel({
+        characterName: 'Jean',
+        role: 'Support',
+        weapons: [
+            {
+                name: 'Primordial Jade Cutter',
+                priority: 1
+            },
+            {
+                name: 'Summit Shaper',
+                priority: 2
+            },
+            {
+                name: 'Amenoma Kageuchi',
+                priority: 3
+            },
+            {
+                name: 'Skyward Blade',
+                priority: 4
+            },
+            {
+                name: 'Festering Desire',
+                priority: 5
+            },
+            {
+                name: 'Favonius Sword',
+                priority: 6
+            },
+            {
+                name: 'The Flute',
+                priority: 7
+            },
+        ],
+        artifacts: {
+            mainStats: {
+                sands: ["ATK%", "Energy Recharge"],
+                goblet: ["ATK%", "Anemo DMG"],
+                circlet: ["ATK%", "Crit Rate", "Crit DMG"]
+            },
+            subStats: [
+                {
+                    stat: "Crit DMG",
+                    priority: 1
+                },
+                {
+                    stat: "Crit Rate",
+                    priority: 2
+                },
+                {
+                    stat: "ATK%",
+                    priority: 3
+                },
+                {
+                    stat: "Energy Recharge",
+                    priority: 4
+                },
+                {
+                    stat: "Elemental Mastery",
+                    priority: 5
+                }
+            ],
+            sets: [
+                {
+                    priority: 1,
+                    bonus: [
+                        {
+                            set: "Viridescent Venerer",
+                            pieces: 4
+                        }
+                    ]
+                },
+                {
+                    priority: 2,
+                    bonus: [
+                        {
+                            set: "Noblesse Oblige",
+                            pieces: 4
+                        }
+                    ]
+                },
+                {
+                    priority: 3,
+                    bonus: [
+                        {
+                            set: "Viridescent Venerer",
+                            pieces: 2
+                        },
+                        {
+                            set: "Shimenawa's Reminiscence",
+                            pieces: 2
+                        }
+                    ]
+                },
+                {
+                    priority: 4,
+                    bonus: [
+                        {
+                            set: "Viridescent Venerer",
+                            pieces: 2
+                        },
+                        {
+                            set: "Emblem of Severed Fate",
+                            pieces: 2
+                        }
+                    ]
+                },
+            ],
+            talent: {
+                normal: 3,
+                skill: 2, 
+                burst: 1
+            }
+        }
+    })).save((err, docs) => {if(err) console.log("Build error : " + err)})
+    // Venti Sub DPS                                                            DONE
+    (new BuildENModel({
+        characterName: 'Venti',
+        role: 'Sub DPS',
+        weapons: [
+            {
+                name: 'The Stringless',
+                priority: 1
+            },
+            {
+                name: 'Alley Hunter',
+                priority: 2
+            },
+            {
+                name: 'Windblume Ode',
+                priority: 3
+            },
+            {
+                name: 'Elegy for the End',
+                priority: 4
+            },
+            {
+                name: 'Skyward Harp',
+                priority: 5
+            },
+            {
+                name: 'Amos\' Bow',
+                priority: 6
+            },
+            {
+                name: 'Alley Hunter',
+                priority: 7
+            },
+        ],
+        artifacts: {
+            mainStats: {
+                sands: ["Elemental Mastery", "ATK%"],
+                goblet: ["Elemental Mastery", "Anemo DMG"],
+                circlet: ["Elemental Mastery", "Crit DMG", "Crit Rate"]
+            },
+            subStats: [
+                {
+                    stat: "Elemental Mastery",
+                    priority: 1
+                },
+                {
+                    stat: "Energy Recharge",
+                    priority: 2
+                },
+                {
+                    stat: "ATK%",
+                    priority: 3
+                },
+                {
+                    stat: "Crit Rate",
+                    priority: 4
+                },
+                {
+                    stat: "Crit DMG",
+                    priority: 5
+                }
+            ],
+            sets: [
+                {
+                    priority: 1,
+                    bonus: [
+                        {
+                            set: "Viridescent Venerer",
+                            pieces: 4
+                        }
+                    ]
+                },
+                {
+                    priority: 2,
+                    bonus: [
+                        {
+                            set: "Noblesse Oblige",
+                            pieces: 4
+                        }
+                    ]
+                },
+                {
+                    priority: 3,
+                    bonus: [
+                        {
+                            set: "Viridescent Venerer",
+                            pieces: 2
+                        },
+                        {
+                            set: "Noblesse Oblige",
+                            pieces: 2
+                        }
+                    ]
+                },
+                {
+                    priority: 4,
+                    bonus: [
+                        {
+                            set: "Viridescent Venerer",
+                            pieces: 2
+                        },
+                        {
+                            set: "Shimenawa's Reminiscence",
+                            pieces: 2
+                        }
+                    ]
+                },
+            ],
+            talent: {
+                normal: 3,
+                skill: 2, 
+                burst: 1
+            }
+        }
+    })).save((err, docs) => {if(err) console.log("Build error : " + err)})
+    // Xiao DPS                                                                 DONE
+    (new BuildENModel({
+        characterName: 'Xiao',
+        role: 'DPS',
+        weapons: [
+            {
+                name: 'Primordial Jade Winged-Spear',
+                priority: 1
+            },
+            {
+                name: 'Staff of Homa',
+                priority: 2
+            },
+            {
+                name: 'Vortex Vanquisher',
+                priority: 3
+            },
+            {
+                name: 'Lithic Spear',
+                priority: 4
+            },
+            {
+                name: 'Deathmatch',
+                priority: 5
+            },
+            {
+                name: 'Blackcliff Pole',
+                priority: 6
+            },
+            {
+                name: 'Favonius Lance',
+                priority: 7
+            },
+        ],
+        artifacts: {
+            mainStats: {
+                sands: ["ATK%"],
+                goblet: ["Anemo DMG"],
+                circlet: ["Crit Rate", "Crit DMG"]
+            },
+            subStats: [
+                {
+                    stat: "Crit DMG",
+                    priority: 1
+                },
+                {
+                    stat: "Crit Rate",
+                    priority: 2
+                },
+                {
+                    stat: "ATK%",
+                    priority: 3
+                },
+                {
+                    stat: "Energy Recharge",
+                    priority: 4
+                },
+                {
+                    stat: "Elemental Mastery",
+                    priority: 5
+                }
+            ],
+            sets: [
+                {
+                    priority: 1,
+                    bonus: [
+                        {
+                            set: "Viridescent Venerer",
+                            pieces: 2
+                        },
+                        {
+                            set: "Shimenawa's Reminiscence",
+                            pieces: 2
+                        }
+                    ]
+                },
+                {
+                    priority: 2,
+                    bonus: [
+                        {
+                            set: "Gladiator's Finale",
+                            pieces: 2
+                        },
+                        {
+                            set: "Shimenawa's Reminiscence",
+                            pieces: 2
+                        }
+                    ]
+                }
             ],
             talent: {
                 normal: 1,
@@ -5337,65 +5869,65 @@ router.get('/', (req, res) => {
             }
         }
     })).save((err, docs) => {if(err) console.log("Build error : " + err)})
-    // Traveler Phys DPS
+    // Kaedehara Kazuha EM                                                      DONE
     (new BuildENModel({
-        characterName: 'Amber',
-        role: 'DPS',
+        characterName: 'Kaedehara Kazuha',
+        role: 'Sub DPS',
         weapons: [
             {
-                name: 'Amos\' Bow',
+                name: 'Freedom-Sworn',
                 priority: 1
             },
             {
-                name: 'Prototype Crescent',
+                name: 'Sacrificial Sword',
                 priority: 2
             },
             {
-                name: 'Skyward Harp',
+                name: 'Favonius Sword',
                 priority: 3
             },
             {
-                name: 'Sharpshooter\'s Oath',
+                name: 'Skyward Blade',
                 priority: 4
             },
             {
-                name: 'Blackcliff Warbow',
+                name: 'Amenoma Kageuchi',
                 priority: 5
             },
             {
-                name: 'Hamayumi',
+                name: 'Iron Sting',
                 priority: 6
             },
             {
-                name: 'Viridescent Hunt',
+                name: 'Dark Iron Sword',
                 priority: 7
             },
         ],
         artifacts: {
             mainStats: {
-                sands: ["ATK%", "Elemental Mastery"],
-                goblet: ["Pyro DMG"],
-                circlet: ["Crit DMG"]
+                sands: ["Elemental Mastery", "Energy Recharge"],
+                goblet: ["Elemental Mastery"],
+                circlet: ["Elemental Mastery"]
             },
             subStats: [
                 {
-                    stat: "Crit DMG",
+                    stat: "Elemental Mastery",
                     priority: 1
                 },
                 {
-                    stat: "ATK%",
+                    stat: "Energy Recharge",
                     priority: 2
                 },
                 {
-                    stat: "Elemental Mastery",
+                    stat: "ATK%",
                     priority: 3
                 },
                 {
-                    stat: "Energy Recharge",
+                    stat: "Crit Rate",
                     priority: 4
                 },
                 {
-                    stat: "ATK",
+                    stat: "Crit DMG",
                     priority: 5
                 }
             ],
@@ -5404,7 +5936,7 @@ router.get('/', (req, res) => {
                     priority: 1,
                     bonus: [
                         {
-                            set: "Wanderer's Troupe",
+                            set: "Viridescent Venerer",
                             pieces: 4
                         }
                     ]
@@ -5413,617 +5945,16 @@ router.get('/', (req, res) => {
                     priority: 2,
                     bonus: [
                         {
-                            set: "Crimson Witch of Flames",
+                            set: "Instructors",
                             pieces: 4
                         }
                     ]
-                },
-                {
-                    priority: 3,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
-                            set: "Wanderer's Troupe",
-                            pieces: 2
-                        }
-                    ]
-                },
-                {
-                    priority: 4,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
-                            set: "Shimenawa's Reminiscence",
-                            pieces: 2
-                        }
-                    ]
-                },
-            ],
-            talent: {
-                normal: 1,
-                skill: 3, 
-                burst: 2
-            }
-        }
-    })).save((err, docs) => {if(err) console.log("Build error : " + err)})
-    // Jean DPS
-    (new BuildENModel({
-        characterName: 'Amber',
-        role: 'DPS',
-        weapons: [
-            {
-                name: 'Amos\' Bow',
-                priority: 1
-            },
-            {
-                name: 'Prototype Crescent',
-                priority: 2
-            },
-            {
-                name: 'Skyward Harp',
-                priority: 3
-            },
-            {
-                name: 'Sharpshooter\'s Oath',
-                priority: 4
-            },
-            {
-                name: 'Blackcliff Warbow',
-                priority: 5
-            },
-            {
-                name: 'Hamayumi',
-                priority: 6
-            },
-            {
-                name: 'Viridescent Hunt',
-                priority: 7
-            },
-        ],
-        artifacts: {
-            mainStats: {
-                sands: ["ATK%", "Elemental Mastery"],
-                goblet: ["Pyro DMG"],
-                circlet: ["Crit DMG"]
-            },
-            subStats: [
-                {
-                    stat: "Crit DMG",
-                    priority: 1
-                },
-                {
-                    stat: "ATK%",
-                    priority: 2
-                },
-                {
-                    stat: "Elemental Mastery",
-                    priority: 3
-                },
-                {
-                    stat: "Energy Recharge",
-                    priority: 4
-                },
-                {
-                    stat: "ATK",
-                    priority: 5
                 }
             ],
-            sets: [
-                {
-                    priority: 1,
-                    bonus: [
-                        {
-                            set: "Wanderer's Troupe",
-                            pieces: 4
-                        }
-                    ]
-                },
-                {
-                    priority: 2,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 4
-                        }
-                    ]
-                },
-                {
-                    priority: 3,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
-                            set: "Wanderer's Troupe",
-                            pieces: 2
-                        }
-                    ]
-                },
-                {
-                    priority: 4,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
-                            set: "Shimenawa's Reminiscence",
-                            pieces: 2
-                        }
-                    ]
-                },
-            ],
             talent: {
-                normal: 1,
-                skill: 3, 
-                burst: 2
-            }
-        }
-    })).save((err, docs) => {if(err) console.log("Build error : " + err)})
-    // Jean Support
-    (new BuildENModel({
-        characterName: 'Amber',
-        role: 'DPS',
-        weapons: [
-            {
-                name: 'Amos\' Bow',
-                priority: 1
-            },
-            {
-                name: 'Prototype Crescent',
-                priority: 2
-            },
-            {
-                name: 'Skyward Harp',
-                priority: 3
-            },
-            {
-                name: 'Sharpshooter\'s Oath',
-                priority: 4
-            },
-            {
-                name: 'Blackcliff Warbow',
-                priority: 5
-            },
-            {
-                name: 'Hamayumi',
-                priority: 6
-            },
-            {
-                name: 'Viridescent Hunt',
-                priority: 7
-            },
-        ],
-        artifacts: {
-            mainStats: {
-                sands: ["ATK%", "Elemental Mastery"],
-                goblet: ["Pyro DMG"],
-                circlet: ["Crit DMG"]
-            },
-            subStats: [
-                {
-                    stat: "Crit DMG",
-                    priority: 1
-                },
-                {
-                    stat: "ATK%",
-                    priority: 2
-                },
-                {
-                    stat: "Elemental Mastery",
-                    priority: 3
-                },
-                {
-                    stat: "Energy Recharge",
-                    priority: 4
-                },
-                {
-                    stat: "ATK",
-                    priority: 5
-                }
-            ],
-            sets: [
-                {
-                    priority: 1,
-                    bonus: [
-                        {
-                            set: "Wanderer's Troupe",
-                            pieces: 4
-                        }
-                    ]
-                },
-                {
-                    priority: 2,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 4
-                        }
-                    ]
-                },
-                {
-                    priority: 3,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
-                            set: "Wanderer's Troupe",
-                            pieces: 2
-                        }
-                    ]
-                },
-                {
-                    priority: 4,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
-                            set: "Shimenawa's Reminiscence",
-                            pieces: 2
-                        }
-                    ]
-                },
-            ],
-            talent: {
-                normal: 1,
-                skill: 3, 
-                burst: 2
-            }
-        }
-    })).save((err, docs) => {if(err) console.log("Build error : " + err)})
-    // Venti Sub DPS
-    (new BuildENModel({
-        characterName: 'Amber',
-        role: 'DPS',
-        weapons: [
-            {
-                name: 'Amos\' Bow',
-                priority: 1
-            },
-            {
-                name: 'Prototype Crescent',
-                priority: 2
-            },
-            {
-                name: 'Skyward Harp',
-                priority: 3
-            },
-            {
-                name: 'Sharpshooter\'s Oath',
-                priority: 4
-            },
-            {
-                name: 'Blackcliff Warbow',
-                priority: 5
-            },
-            {
-                name: 'Hamayumi',
-                priority: 6
-            },
-            {
-                name: 'Viridescent Hunt',
-                priority: 7
-            },
-        ],
-        artifacts: {
-            mainStats: {
-                sands: ["ATK%", "Elemental Mastery"],
-                goblet: ["Pyro DMG"],
-                circlet: ["Crit DMG"]
-            },
-            subStats: [
-                {
-                    stat: "Crit DMG",
-                    priority: 1
-                },
-                {
-                    stat: "ATK%",
-                    priority: 2
-                },
-                {
-                    stat: "Elemental Mastery",
-                    priority: 3
-                },
-                {
-                    stat: "Energy Recharge",
-                    priority: 4
-                },
-                {
-                    stat: "ATK",
-                    priority: 5
-                }
-            ],
-            sets: [
-                {
-                    priority: 1,
-                    bonus: [
-                        {
-                            set: "Wanderer's Troupe",
-                            pieces: 4
-                        }
-                    ]
-                },
-                {
-                    priority: 2,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 4
-                        }
-                    ]
-                },
-                {
-                    priority: 3,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
-                            set: "Wanderer's Troupe",
-                            pieces: 2
-                        }
-                    ]
-                },
-                {
-                    priority: 4,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
-                            set: "Shimenawa's Reminiscence",
-                            pieces: 2
-                        }
-                    ]
-                },
-            ],
-            talent: {
-                normal: 1,
-                skill: 3, 
-                burst: 2
-            }
-        }
-    })).save((err, docs) => {if(err) console.log("Build error : " + err)})
-    // Xiao DPS
-    (new BuildENModel({
-        characterName: 'Amber',
-        role: 'DPS',
-        weapons: [
-            {
-                name: 'Amos\' Bow',
-                priority: 1
-            },
-            {
-                name: 'Prototype Crescent',
-                priority: 2
-            },
-            {
-                name: 'Skyward Harp',
-                priority: 3
-            },
-            {
-                name: 'Sharpshooter\'s Oath',
-                priority: 4
-            },
-            {
-                name: 'Blackcliff Warbow',
-                priority: 5
-            },
-            {
-                name: 'Hamayumi',
-                priority: 6
-            },
-            {
-                name: 'Viridescent Hunt',
-                priority: 7
-            },
-        ],
-        artifacts: {
-            mainStats: {
-                sands: ["ATK%", "Elemental Mastery"],
-                goblet: ["Pyro DMG"],
-                circlet: ["Crit DMG"]
-            },
-            subStats: [
-                {
-                    stat: "Crit DMG",
-                    priority: 1
-                },
-                {
-                    stat: "ATK%",
-                    priority: 2
-                },
-                {
-                    stat: "Elemental Mastery",
-                    priority: 3
-                },
-                {
-                    stat: "Energy Recharge",
-                    priority: 4
-                },
-                {
-                    stat: "ATK",
-                    priority: 5
-                }
-            ],
-            sets: [
-                {
-                    priority: 1,
-                    bonus: [
-                        {
-                            set: "Wanderer's Troupe",
-                            pieces: 4
-                        }
-                    ]
-                },
-                {
-                    priority: 2,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 4
-                        }
-                    ]
-                },
-                {
-                    priority: 3,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
-                            set: "Wanderer's Troupe",
-                            pieces: 2
-                        }
-                    ]
-                },
-                {
-                    priority: 4,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
-                            set: "Shimenawa's Reminiscence",
-                            pieces: 2
-                        }
-                    ]
-                },
-            ],
-            talent: {
-                normal: 1,
-                skill: 3, 
-                burst: 2
-            }
-        }
-    })).save((err, docs) => {if(err) console.log("Build error : " + err)})
-    // Kaegehara Kazuha EM
-    (new BuildENModel({
-        characterName: 'Amber',
-        role: 'DPS',
-        weapons: [
-            {
-                name: 'Amos\' Bow',
-                priority: 1
-            },
-            {
-                name: 'Prototype Crescent',
-                priority: 2
-            },
-            {
-                name: 'Skyward Harp',
-                priority: 3
-            },
-            {
-                name: 'Sharpshooter\'s Oath',
-                priority: 4
-            },
-            {
-                name: 'Blackcliff Warbow',
-                priority: 5
-            },
-            {
-                name: 'Hamayumi',
-                priority: 6
-            },
-            {
-                name: 'Viridescent Hunt',
-                priority: 7
-            },
-        ],
-        artifacts: {
-            mainStats: {
-                sands: ["ATK%", "Elemental Mastery"],
-                goblet: ["Pyro DMG"],
-                circlet: ["Crit DMG"]
-            },
-            subStats: [
-                {
-                    stat: "Crit DMG",
-                    priority: 1
-                },
-                {
-                    stat: "ATK%",
-                    priority: 2
-                },
-                {
-                    stat: "Elemental Mastery",
-                    priority: 3
-                },
-                {
-                    stat: "Energy Recharge",
-                    priority: 4
-                },
-                {
-                    stat: "ATK",
-                    priority: 5
-                }
-            ],
-            sets: [
-                {
-                    priority: 1,
-                    bonus: [
-                        {
-                            set: "Wanderer's Troupe",
-                            pieces: 4
-                        }
-                    ]
-                },
-                {
-                    priority: 2,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 4
-                        }
-                    ]
-                },
-                {
-                    priority: 3,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
-                            set: "Wanderer's Troupe",
-                            pieces: 2
-                        }
-                    ]
-                },
-                {
-                    priority: 4,
-                    bonus: [
-                        {
-                            set: "Crimson Witch of Flames",
-                            pieces: 2
-                        },
-                        {
-                            set: "Shimenawa's Reminiscence",
-                            pieces: 2
-                        }
-                    ]
-                },
-            ],
-            talent: {
-                normal: 1,
-                skill: 3, 
-                burst: 2
+                normal: 3,
+                skill: 2, 
+                burst: 1
             }
         }
     })).save((err, docs) => {if(err) console.log("Build error : " + err)})
