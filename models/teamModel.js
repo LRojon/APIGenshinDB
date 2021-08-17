@@ -5,6 +5,7 @@ const schema = new Schema({
     characters: [
         {
             character: String,
+            element: String,
             role: String
         }
     ]
