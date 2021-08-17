@@ -3,6 +3,64 @@ const router = express.Router()
 
 const { TeamENModel, TeamFRModel } = require('../models/teamModel')
 
+router.get('/:lang/:multiple', (req, res) => {
+    if(req.params.lang == 'en-us') {
+        let filter = {}
+        if(req.query.character != null) filter['characters.character'] = req.query.character
+        if(req.query.element != null) filter['characters.element'] = req.query.element
+        if(req.params.multiple == 'one')
+            TeamENModel.findOne(filter, (err, docs) => {
+                if(err) console.log('Team fetch one error : ' + err)
+                else res.send(docs)
+            })
+        else if(req.params.multiple == 'multiple')
+            TeamENModel.find(filter, (err, docs) => {
+                if(err) console.log('Team fetch one error : ' + err)
+                else res.send(docs)
+            })
+        else if(req.params.multiple == 'all')
+            TeamENModel.find((err, docs) => {
+                if(err) console.log('Team fetch one error : ' + err)
+                else res.send(docs)
+            })
+    }
+    else if(req.params.lang == 'fr-fr') {
+        let filter = {}
+        if(req.query.character != null) filter['characters.character'] = req.query.character
+        if(req.query.element != null) filter['characters.element'] = req.query.element
+        if(req.params.multiple == 'one')
+            TeamFRModel.findOne(filter, (err, docs) => {
+                if(err) console.log('Team fetch one error : ' + err)
+                else res.send(docs)
+            })
+        else if(req.params.multiple == 'multiple')
+            TeamFRModel.find(filter, (err, docs) => {
+                if(err) console.log('Team fetch one error : ' + err)
+                else res.send(docs)
+            })
+        else if(req.params.multiple == 'all')
+            TeamFRModel.find((err, docs) => {
+                if(err) console.log('Team fetch one error : ' + err)
+                else res.send(docs)
+            })
+    }
+})
+
+router.get('/:lang/all', (req, res) => {
+    if(req.params.lang == 'en-us') {
+        TeamENModel.find((err, docs) => {
+            if(err) console.log('Team fetch one error : ' + err)
+            else res.send(docs)
+        })
+    }
+    else if(req.params.lang == 'fr-fr') {
+        TeamFRModel.find((err, docs) => {
+            if(err) console.log('Team fetch one error : ' + err)
+            else res.send(docs)
+        })
+    }
+})
+
 router.get('/init', (req, res) => {
     // Yoimiya's team                                       DONE
     let tmp = new TeamENModel({
