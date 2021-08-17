@@ -95,6 +95,7 @@ router.get('/:lang/daily', (req, res) => {
                 {
                     let materials = genshin.materials(day, {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
                     materials.forEach(material => {
+                        MaterialENModel.deleteOne({name: material.name}).exec()
                         material['insertDate'] = Date.now()
                         let tmp = new MaterialENModel(material)
                         tmp.save((err, docs) => {
@@ -131,6 +132,7 @@ router.get('/:lang/daily', (req, res) => {
                 {
                     let materials = genshin.materials(day, {matchCategories: true, verboseCategories: true, resultLanguage: 'French', queryLanguages: ['French']})
                     materials.forEach(material => {
+                        MaterialFRModel.deleteOne({name: material.name}).exec()
                         material['insertDate'] = Date.now()
                         let tmp = new MaterialFRModel(material)
                         tmp.save((err, docs) => {

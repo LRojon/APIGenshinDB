@@ -43,7 +43,7 @@ let schema = new Schema({
     insertDate: { type: Date, default: Date.now() }
 })
 
-const artifactENModel = mongoose.model('artifact', schema, 'artifactsEN')
-const artifactFRModel = mongoose.model('artifact', schema, 'artifactsFR')
+const ArtifactENModel = mongoose.model('artifact', schema, 'artifactsEN')
+const ArtifactFRModel = mongoose.model('artifact', schema, 'artifactsFR')
 
-module.exports = { artifactENModel, artifactFRModel }
+module.exports = { ArtifactENModel, ArtifactFRModel }
