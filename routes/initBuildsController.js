@@ -6992,7 +6992,7 @@ router.get('/init', (req, res) => {
 
     // Pyro 4 stars
     // Amber DPS                                                                
-    let tmp = new BuildFRModel({
+    tmp = new BuildFRModel({
         characterName: 'Amber',
         role: 'DPS',
         weapons: [
