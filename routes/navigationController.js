@@ -31,7 +31,7 @@ router.get('/artifacts', (req, res) => {
         all: "/" + lang + "/all"
     })
 })
-router.get('/', (req, res) => {
+router.get('/materials', (req, res) => {
     res.send({
         all: "/" + lang + "/all",
         daily: "/" + lang + "/daily"

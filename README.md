@@ -1,16 +1,65 @@
 Root URL: [https://genshin.lrojon.fr/]
+| Supported language | Code to insert |
+| ------------------ | -------------- |
+| English            | en-us          |
+| French             | fr-fr          |
+|                    |                |
 
 # Characters
 
+| Routes                        | Description              |
+| ----------------------------- | ------------------------ |
+| ``/characters/:language/all`` | __Fetch all characters__ |
 
 # Weapons
 
+| Routes                     | Description           |
+| -------------------------- | --------------------- |
+| ``/weapons/:language/all`` | __Fetch all weapons__ |
+
 # Artifacts
+
+| Routes                       | Description             |
+| ---------------------------- | ----------------------- |
+| ``/artifacts/:language/all`` | __Fetch all artifacts__ |
 
 # Materials
 
+| Routes                         | Description                             |
+| ------------------------------ | --------------------------------------- |
+| ``/materials/:language/all``   | __Fetch all materials__                 |
+| ``/materials/:language/daily`` | __Fecth all materials available today__ |
+
 # Elements
+
+| Routes                      | Description           |
+| --------------------------- | --------------------- |
+| ``/elements/:language/all`` | __Fetch all element__ |
 
 # Builds
 
+| Routes                                | Description                                      |
+| ------------------------------------- | ------------------------------------------------ |
+| ``/builds/:language/all``             | __Fetch all character's build__                  |
+| ``/builds/:language/multiple?params`` | __Fetch all build that match with params__       |
+| ``/builds/:language/one?params``      | __Fetch the first nuild that match with params__ |
+
+| Parameter | Type   | Description                                  |
+| --------- | ------ | -------------------------------------------- |
+| character | String | Character name                               |
+| role      | String | Character's role among DPS, Sub DPS, Support |
+| weapon    | String | Potential weapon in build                    |
+| artifact  | String | Potential artifact set name                  |
+
 # Teams
+
+| Routes                               | Description                                      |
+| ------------------------------------ | ------------------------------------------------ |
+| ``/teams/:language/all``             | __Fetch all character's build__                  |
+| ``/teams/:language/multiple?params`` | __Fetch all build that match with params__       |
+| ``/teams/:language/one?params``      | __Fetch the first nuild that match with params__ |
+
+| Parameter | Type   | Description                                                  |
+| --------- | ------ | ------------------------------------------------------------ |
+| character | String | Character's name in team                                     |
+| element   | String | Element in team among Anemo, Cryo, Electro, Geo, Hydro, Pyro |
