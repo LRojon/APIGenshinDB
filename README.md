@@ -1,9 +1,21 @@
-Root URL: [https://genshin.lrojon.fr/]
+# Table of Contents
+- [Table of Contents](#table-of-contents)
+- [Characters](#characters)
+- [Weapons](#weapons)
+- [Artifacts](#artifacts)
+- [Materials](#materials)
+- [Elements](#elements)
+- [Builds](#builds)
+- [Teams](#teams)
+
+| Root URL                 |
+|--------------------------|
+|https://genshin.lrojon.fr/|
+
 | Supported language | Code to insert |
 | ------------------ | -------------- |
 | English            | en-us          |
 | French             | fr-fr          |
-|                    |                |
 
 # Characters
 
@@ -44,12 +56,12 @@ Root URL: [https://genshin.lrojon.fr/]
 | ``/builds/:language/multiple?params`` | __Fetch all build that match with params__       |
 | ``/builds/:language/one?params``      | __Fetch the first nuild that match with params__ |
 
-| Parameter | Type   | Description                                  |
-| --------- | ------ | -------------------------------------------- |
-| character | String | Character name                               |
-| role      | String | Character's role among DPS, Sub DPS, Support |
-| weapon    | String | Potential weapon in build                    |
-| artifact  | String | Potential artifact set name                  |
+| Parameter | Type         | Description                                  |
+| --------- | ------------ | -------------------------------------------- |
+| character | ___String___ | Character name                               |
+| role      | ___String___ | Character's role among DPS, Sub DPS, Support |
+| weapon    | ___String___ | Potential weapon in build                    |
+| artifact  | ___String___ | Potential artifact set name                  |
 
 # Teams
 
@@ -59,7 +71,7 @@ Root URL: [https://genshin.lrojon.fr/]
 | ``/teams/:language/multiple?params`` | __Fetch all build that match with params__       |
 | ``/teams/:language/one?params``      | __Fetch the first nuild that match with params__ |
 
-| Parameter | Type   | Description                                                  |
-| --------- | ------ | ------------------------------------------------------------ |
-| character | String | Character's name in team                                     |
-| element   | String | Element in team among Anemo, Cryo, Electro, Geo, Hydro, Pyro |
+| Parameter | Type         | Description                                                  |
+| --------- | ------------ | ------------------------------------------------------------ |
+| character | ___String___ | Character's name in team                                     |
+| element   | ___String___ | Element in team among Anemo, Cryo, Electro, Geo, Hydro, Pyro |
