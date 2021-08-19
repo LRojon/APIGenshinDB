@@ -1,5 +1,4 @@
 # Table of Contents
-- [Table of Contents](#table-of-contents)
 - [Characters](#characters)
 - [Weapons](#weapons)
 - [Artifacts](#artifacts)
