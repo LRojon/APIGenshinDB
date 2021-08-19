@@ -21,4 +21,4 @@ app.use('/builds', buildInitRoutes)
 app.use('/artifacts', artifactRoutes)
 app.use('/teams', teamRoutes)
 
-app.listen(5500, () => console.log("Server started at port 5500"));
+app.listen(8101, () => console.log("Server started at port 8101"))
