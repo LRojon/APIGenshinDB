@@ -81,6 +81,6 @@
 __This API formats data that I did not produce.<br>
 If you want to recover data please first look at the sources I have used.__<br>
 <br>
-Data of Character, Weapon, Artifacts, Materials and Elements: [genshin-db](https://github.com/theBowja/genshin-db#genshindbcharactersquery-opts)<br>
+Data of Character, Weapon, Artifacts, Materials and Elements: [genshin-db](https://github.com/theBowja/genshin-db)<br>
 Data of character's Build: [The Genshin Helper Team](https://docs.google.com/spreadsheets/d/1gNxZ2xab1J6o1TuNVWMeLOZ7TPOqrsf3SshP5DLvKzI/htmlview#)<br>
 Data of Team composition: [game8](https://game8.co/games/Genshin-Impact/archives/301819)
