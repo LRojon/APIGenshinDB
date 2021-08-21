@@ -7,7 +7,7 @@ const { ElementENModel, ElementFRModel } = require('../models/elementModel')
 
 function deleteAccent(str)
 {
-    return str.normalize("NFD").replace(/\p{Diacritic}/gu, "")
+    return str.normalize('NFD').replace(/\p{Diacritic}/gu, "")
 }
 
 router.get('/:lang/all', (req, res) => {
@@ -182,7 +182,7 @@ router.get('/:lang/all', (req, res) => {
                         char.constellations.push(tmpC)
                     }
                     else {
-                        char['element'] = genshin.elements(char.element, {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
+                        char['element'] = genshin.elements(deleteAccent(char.element), {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
                         char['talents'] = genshin.talents(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French'})
                         let cons = genshin.constellations(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French'})
                         char['constellations'] = []
@@ -247,7 +247,7 @@ router.get('/:lang/all', (req, res) => {
                             tmpChar.constellations.push(tmpC)
                         }
                         else {
-                            tmpChar['element'] = genshin.elements(char.element, {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
+                            tmpChar['element'] = genshin.elements(deleteAccent(char.element), {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
                             tmpChar['talents'] = genshin.talents(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French'})
                             let cons = genshin.constellations(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French'})
                             tmpChar['constellations'] = []
