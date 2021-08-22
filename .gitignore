@@ -117,4 +117,4 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-models/dbConfig.js
+./models/dbConfig.js
