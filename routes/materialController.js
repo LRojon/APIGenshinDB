@@ -112,7 +112,7 @@ router.get('/:lang/daily', (req, res) => {
     }
     else if(req.params.lang == 'fr-fr')
     {
-        const daysOfWeek = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Venredi', 'Samedi']
+        const daysOfWeek = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi']
         let day = daysOfWeek[(new Date()).getDay()];
         MaterialFRModel.findOne({daysofweek: day}, (err, docs) => {
             if(err) console.log("Daily material find error : " + err)

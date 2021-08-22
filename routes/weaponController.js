@@ -44,11 +44,14 @@ router.get('/:lang/all', (req, res) => {
                 if((new Date()).getTime() - docs.insertDate.getTime() > 10000/*86400000*/) {
                     let weapons = genshin.weapons('names', {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
                     weapons.forEach(weapon => {
+                        let tmpWeapon = {...weapon}
+                        WeaponENModel.deleteOne({name: tmpWeapon.name}).exec()
+                        tmpWeapon['insertDate'] = Date.now()
                         let stats = []
                         let lvlMax = weapon.rarity > 2 ? 90 : 70
                         for(let i = 1; i <= lvlMax; i++)
                         {
-                            let tmpStat = weapon.stats(i)
+                            let tmpStat = tmpWeapon.stats(i)
                             stats.push({
                                 ascension: tmpStat.ascension,
                                 attack: tmpStat.attack,
@@ -56,7 +59,7 @@ router.get('/:lang/all', (req, res) => {
                                 specialized: tmpStat.specialized
                             })
                             if([20, 40, 50, 60, 70, 80].includes(i)) {
-                                tmpStat = weapon.stats(i, '+')
+                                tmpStat = tmpWeapon.stats(i, '+')
                                 stats.push({
                                     ascension: tmpStat.ascension,
                                     attack: tmpStat.attack,
@@ -65,8 +68,11 @@ router.get('/:lang/all', (req, res) => {
                                 })
                             }
                         }
-                        weapon.stats = stats
-                        WeaponENModel.findOneAndReplace({name: weapon.name}, weapon).exec()
+                        tmpWeapon.stats = stats
+                        let tmp = new WeaponENModel(tmpWeapon)
+                        tmp.save((err, docs) => { 
+                            if(err) console.log("Weapon save error : " + err) 
+                        })
                     })
                 }
             }
@@ -117,11 +123,14 @@ router.get('/:lang/all', (req, res) => {
                 if((new Date()).getTime() - docs.insertDate.getTime() > 10000/*86400000*/) {
                     let weapons = genshin.weapons('names', {matchCategories: true, verboseCategories: true, resultLanguage: 'French'})
                     weapons.forEach(weapon => {
+                        let tmpWeapon = {...weapon}
+                        WeaponFRModel.deleteOne({name: tmpWeapon.name}).exec()
+                        tmpWeapon['insertDate'] = Date.now()
                         let stats = []
-                        let lvlMax = weapon.rarity > 2 ? 90 : 70
+                        let lvlMax = tmpWeapon.rarity > 2 ? 90 : 70
                         for(let i = 1; i <= lvlMax; i++)
                         {
-                            let tmpStat = weapon.stats(i)
+                            let tmpStat = tmpWeapon.stats(i)
                             stats.push({
                                 ascension: tmpStat.ascension,
                                 attack: tmpStat.attack,
@@ -129,7 +138,7 @@ router.get('/:lang/all', (req, res) => {
                                 specialized: tmpStat.specialized
                             })
                             if([20, 40, 50, 60, 70, 80].includes(i)) {
-                                tmpStat = weapon.stats(i, '+')
+                                tmpStat = tmpWeapon.stats(i, '+')
                                 stats.push({
                                     ascension: tmpStat.ascension,
                                     attack: tmpStat.attack,
@@ -138,8 +147,11 @@ router.get('/:lang/all', (req, res) => {
                                 })
                             }
                         }
-                        weapon.stats = stats
-                        WeaponFRModel.findOneAndReplace({name: weapon.name}, weapon).exec()
+                        tmpWeapon.stats = stats
+                        let tmp = new WeaponFRModel(tmpWeapon)
+                        tmp.save((err, docs) => {
+                            if(err) console.log('Weapon save error : ' + err)
+                        })
                     })
                 }
             }

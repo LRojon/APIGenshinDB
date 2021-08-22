@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
+const { BuildENModel, BuildFRModel } = require('../models/buildModel')
+
 router.get('/init', (req, res) => {
     // Pyro 4 stars
     // Amber DPS                                                                DONE

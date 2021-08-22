@@ -35,7 +35,33 @@ router.get('/:lang/all', (req, res) => {
         }, 100);
     }
     else if(req.params.lang == 'fr-fr') {
-
+        ArtifactFRModel.findOne((err, doc) => {
+            if(!doc) {
+                let artifacts = genshin.artifacts('name', {matchCategories: true, verboseCategories: true, resultLanguage: 'French'})
+                artifacts.forEach(artifact => {
+                    let tmp = new ArtifactFRModel(artifact)
+                    tmp.save((err, doc) => {
+                        if(err) console.log("Artifact save error : " + doc.name + " => " + err)
+                    })
+                })
+            }
+            else {
+                if((new Date()).getTime() - doc.insertDate.getTime() > 10000/*86400000*/)
+                {
+                    let artifacts = genshin.artifacts('name', {matchCategories: true, verboseCategories: true, resultLanguage: 'French'})
+                    artifacts.forEach(artifact => {
+                        artifact['insertDate'] = Date.now()
+                        ArtifactFRModel.replaceOne({name: artifact.name}, artifact).exec()
+                    })
+                }
+            }
+        })
+        setTimeout(() => {
+            ArtifactFRModel.find((err, docs) => {
+                if(err) console.log(err)
+                else res.send(docs)
+            })
+        }, 100);
     }
 })
 

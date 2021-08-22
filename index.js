@@ -10,6 +10,21 @@ const buildRoutes = require('./routes/buildController')
 const buildInitRoutes = require('./routes/initBuildsController')
 const artifactRoutes = require('./routes/artifactController')
 const teamRoutes = require('./routes/teamController')
+const bodyParser = require('body-parser')
+const { urlencoded } = require('body-parser')
+
+app.use(express.json({
+    limit: '1000mb',
+    extended: false
+}))
+app.use(express.urlencoded({
+    limit: '1000mb',
+    extended: false,
+    parameterLimit: 50000
+}))
+app.use(express.text({
+    limit: '50mb',
+}))
 
 app.use('/', navigationRoutes)
 app.use('/characters', characterRoutes)
@@ -21,4 +36,7 @@ app.use('/builds', buildInitRoutes)
 app.use('/artifacts', artifactRoutes)
 app.use('/teams', teamRoutes)
 
-app.listen(5500, () => console.log("Server started at port 5500"));
+app.listen(8101, () => {
+    console.log("Server started at port 8101")
+    console.log(app.settings)
+})
