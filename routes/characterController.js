@@ -186,8 +186,8 @@ router.get('/:lang/all', (req, res) => {
                         }
                         else {
                             char['element'] = genshin.elements(deleteAccent(char.element), {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
-                            char['talents'] = genshin.talents(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French'})
-                            char['constellations'] = genshin.constellations(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French'})
+                            char['talents'] = genshin.talents(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French', queryLanguages: ['French']})
+                            char['constellations'] = genshin.constellations(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French', queryLanguages: ['French']})
                             let tmp = new CharacterFRModel(char)
                             tmp.save((err, docs) => {
                                 if(err) console.log('Character save error : ' + err)
@@ -250,8 +250,8 @@ router.get('/:lang/all', (req, res) => {
                             }
                             else {
                                 tmpChar['element'] = genshin.elements(deleteAccent(char.element), {matchCategories: true, verboseCategories: true, resultLanguage: 'English'})
-                                tmpChar['talents'] = genshin.talents(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French'})
-                                tmpChar['constellations'] = genshin.constellations(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French'})
+                                tmpChar['talents'] = genshin.talents(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French', queryLanguages: ['French']})
+                                tmpChar['constellations'] = genshin.constellations(char.name, {matchCategories: true, verboseCategories: true, resultLanguage: 'French', queryLanguages: ['French']})
                                 let tmp = new CharacterFRModel(tmpChar)
                                 tmp.save((err, docs) => {
                                     if(err) console.log('Character save error : ' + err)
