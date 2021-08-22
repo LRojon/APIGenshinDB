@@ -19,42 +19,44 @@
 
 # Characters
 
-| Routes                        | Description              |
-| ----------------------------- | ------------------------ |
-| ``/characters/:language/all`` | __Fetch all characters__ |
+| Routes                                       | Description                                    |
+| -------------------------------------------- | ---------------------------------------------- |
+| ``/characters/<language>/all``               | __Fetch all characters__                       |
+| ``/characters/<language>/name/<name>``       | __Fetch one character by his name__            |
+| ``/characters/<language>/element/<element>`` | __Fetch all characters who have this element__ |
 
 # Weapons
 
 | Routes                     | Description           |
 | -------------------------- | --------------------- |
-| ``/weapons/:language/all`` | __Fetch all weapons__ |
+| ``/weapons/<language>/all`` | __Fetch all weapons__ |
 
 # Artifacts
 
 | Routes                       | Description             |
 | ---------------------------- | ----------------------- |
-| ``/artifacts/:language/all`` | __Fetch all artifacts__ |
+| ``/artifacts/<language>/all`` | __Fetch all artifacts__ |
 
 # Materials
 
 | Routes                         | Description                             |
 | ------------------------------ | --------------------------------------- |
-| ``/materials/:language/all``   | __Fetch all materials__                 |
-| ``/materials/:language/daily`` | __Fecth all materials available today__ |
+| ``/materials/<language>/all``   | __Fetch all materials__                 |
+| ``/materials/<language>/daily`` | __Fecth all materials available today__ |
 
 # Elements
 
 | Routes                      | Description           |
 | --------------------------- | --------------------- |
-| ``/elements/:language/all`` | __Fetch all element__ |
+| ``/elements/<language>/all`` | __Fetch all element__ |
 
 # Builds
 
 | Routes                                | Description                                      |
 | ------------------------------------- | ------------------------------------------------ |
-| ``/builds/:language/all``             | __Fetch all character's build__                  |
-| ``/builds/:language/multiple?params`` | __Fetch all build that match with params__       |
-| ``/builds/:language/one?params``      | __Fetch the first nuild that match with params__ |
+| ``/builds/<language>/all``             | __Fetch all character's build__                  |
+| ``/builds/<language>/multiple?params`` | __Fetch all build that match with params__       |
+| ``/builds/<language>/one?params``      | __Fetch the first nuild that match with params__ |
 
 | Parameter | Type         | Description                                  |
 | --------- | ------------ | -------------------------------------------- |
@@ -67,9 +69,9 @@
 
 | Routes                               | Description                                      |
 | ------------------------------------ | ------------------------------------------------ |
-| ``/teams/:language/all``             | __Fetch all character's build__                  |
-| ``/teams/:language/multiple?params`` | __Fetch all build that match with params__       |
-| ``/teams/:language/one?params``      | __Fetch the first nuild that match with params__ |
+| ``/teams/<language>/all``             | __Fetch all character's build__                  |
+| ``/teams/<language>/multiple?params`` | __Fetch all build that match with params__       |
+| ``/teams/<language>/one?params``      | __Fetch the first nuild that match with params__ |
 
 | Parameter | Type         | Description                                                  |
 | --------- | ------------ | ------------------------------------------------------------ |
