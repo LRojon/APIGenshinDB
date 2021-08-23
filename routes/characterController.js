@@ -2,13 +2,72 @@ const express = require('express')
 const router = express.Router()
 const genshin = require('genshin-db')
 
-const { CharacterENModel, CharacterFRModel } = require('../models/characterModel')
+const { CharacterENModel, CharacterFRModel, LDCharacterENModel, LDCharacterFRModel} = require('../models/characterModel')
 const { ElementENModel, ElementFRModel } = require('../models/elementModel')
 
 function deleteAccent(str)
 {
     return str.normalize('NFD').replace(/\p{Diacritic}/gu, "")
 }
+
+router.get('/:lang/low/all', (req, res) => {
+    if(req.params.lang == 'en-us') {
+        LDCharacterENModel.deleteMany({}).exec()
+        CharacterENModel.find({}, (err, docs) => {
+            if(err) { console.log(err) }
+            else {
+                docs.forEach(doc => {
+                    let char = {
+                        name: doc.name,
+                        element: doc.element.name,
+                        material: doc.talents.costs.lvl2[1].name,
+                        rarity: doc.rarity,
+                        icon: doc.images.icon
+                    }
+                    console.log(char)
+                    let tmp = new LDCharacterENModel(char)
+                    tmp.save((err, doc) => {
+                        if(err) console.log(err)
+                    })
+                })
+                setTimeout(() => {
+                    LDCharacterENModel.find({}, (err, docs) => {
+                        if(err) console.log(err)
+                        else res.send(docs)
+                    })
+                }, 100);
+            }
+        })
+    }
+    else if(req.params.lang == 'fr-fr') {
+        LDCharacterFRModel.deleteMany({}).exec()
+        CharacterFRModel.find({}, (err, docs) => {
+            if(err) { console.log(err) }
+            else {
+                docs.forEach(doc => {
+                    let char = {
+                        name: doc.name,
+                        element: doc.element.name,
+                        material: doc.talents.costs.lvl2[1].name,
+                        rarity: doc.rarity,
+                        icon: doc.images.icon
+                    }
+                    console.log(char)
+                    let tmp = new LDCharacterFRModel(char)
+                    tmp.save((err, doc) => {
+                        if(err) console.log(err)
+                    })
+                })
+                setTimeout(() => {
+                    LDCharacterFRModel.find({}, (err, docs) => {
+                        if(err) console.log(err)
+                        else res.send(docs)
+                    })
+                }, 100);
+            }
+        })
+    }
+})
 
 router.get('/:lang/all', (req, res) => {
     if(req.params.lang == 'en-us')

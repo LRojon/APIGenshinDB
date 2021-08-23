@@ -1,5 +1,8 @@
-# Table of Contents
+## Table of Contents
+- [Informations](#informations)
 - [Characters](#characters)
+  - [Full data character](#full-data-character)
+  - [Low data character](#low-data-character)
 - [Weapons](#weapons)
 - [Artifacts](#artifacts)
 - [Materials](#materials)
@@ -8,9 +11,10 @@
 - [Teams](#teams)
 - [Sources](#sources)
 
-| Root URL                 |
-|--------------------------|
-|https://genshin.lrojon.fr/|
+# Informations
+
+| Root URL                 | https://genshin.lrojon.fr/ |
+|--------------------------|----------------------------|
 
 | Supported language | Code to insert |
 | ------------------ | -------------- |
@@ -19,23 +23,206 @@
 
 # Characters
 
+## Full data character
+
 | Routes                                       | Description                                    |
 | -------------------------------------------- | ---------------------------------------------- |
 | ``/characters/<language>/all``               | __Fetch all characters__                       |
+| ``/characters/<language>/name/all``          | __Fetch a list of all character's name__       |
 | ``/characters/<language>/name/<name>``       | __Fetch one character by his name__            |
 | ``/characters/<language>/element/<element>`` | __Fetch all characters who have this element__ |
 
+<details>
+    <summary>Response format</summary>
+
+```js
+{
+    affiliation: String,
+    association: String,
+    birthday: String,
+    birthdaymmdd: String,
+    body: String,
+    constellation: String,
+    cv: {
+        chinese: String,
+        english: String,
+        japanese: String,
+        korean: String
+    },
+    costs: {
+        ascend1: [{ name: String, count: Number }],
+        ascend2: [{ name: String, count: Number }],
+        ascend3: [{ name: String, count: Number }],
+        ascend4: [{ name: String, count: Number }],
+        ascend5: [{ name: String, count: Number }],
+        ascend6: [{ name: String, count: Number }],
+    },
+    description: String,
+    element: Object,
+    gender: String,
+    images: {
+        card: String,
+        cover1: String,
+        cover2: String,
+        'hoyolab-avatar': String,
+        icon: String,
+        image: String,
+        portrait: String,
+        sideicon: String,
+    },
+    name: String,
+    rarity: String,
+    region: String,
+    stats: [
+        {
+            ascension: Number,
+            attack: Number,
+            defense: Number,
+            hp: Number,
+            level: Number,
+            specialized: Number
+        }
+    ],
+    substat: String,
+    title: String,
+    url: {
+        fandom: String
+    },
+    weapontype: String,
+    talents: Object,
+    constellations: Object,
+    insertDate: Date
+}
+```
+</details>
+<br>
+
+## Low data character
+
+| Routes                             | Description                      |
+| ---------------------------------- | -------------------------------- |
+| ``/characters/<language>/low/all`` | __Fetch all low data character__ |
+
+<details>
+    <summary>Response format</summary>
+
+```js
+{
+    name: String,
+    element: String,
+    material: String,
+    rarity: String,
+    icon: String
+}
+```
+</details><br>
+
 # Weapons
 
-| Routes                     | Description           |
-| -------------------------- | --------------------- |
+| Routes                      | Description           |
+| --------------------------- | --------------------- |
 | ``/weapons/<language>/all`` | __Fetch all weapons__ |
+
+<details>
+    <summary>Response format</summary>
+
+```js
+{
+    name: String,
+    description: String,
+    weapontype: String,
+    rarity: String,
+    baseatk: Number,
+    substat: String,
+    subvalue: String,
+    effectname: String,
+    effect: String,
+    r1: [String],
+    r2: [String],
+    r3: [String],
+    r4: [String],
+    r5: [String],
+    weaponmaterialtype: String,
+    costs: {
+        ascend1: [{ name: String, count: Number }],
+        ascend2: [{ name: String, count: Number }],
+        ascend3: [{ name: String, count: Number }],
+        ascend4: [{ name: String, count: Number }],
+        ascend5: [{ name: String, count: Number }],
+        ascend6: [{ name: String, count: Number }],
+    },
+    images: {
+        image: String,
+        icon: String,
+        awakenicon: String
+    },
+    url: { fandom: String },
+    stats: [
+        {
+            ascension: Number,
+            attack: Number,
+            level: Number,
+            specialized: Number
+        }
+    ],
+    insertDate: Date
+}
+```
+</details><br>
 
 # Artifacts
 
 | Routes                       | Description             |
 | ---------------------------- | ----------------------- |
 | ``/artifacts/<language>/all`` | __Fetch all artifacts__ |
+
+<details>
+    <summary>Response format</summary>
+
+```js
+{
+    name : String,
+    rarity: [String],
+    1pc: String?,
+    2pc: String?,
+    4pc: String?,
+    flower: {
+        name: String,
+        relictype: String,
+        description: String,
+    },
+    plume: {
+        name: String,
+        relictype: String,
+        description: String,
+    },
+    sands: {
+        name: String,
+        relictype: String,
+        description: String,
+    },
+    goblet: {
+        name: String,
+        relictype: String,
+        description: String,
+    },
+    circlet: {
+        name: String,
+        relictype: String,
+        description: String,
+    },
+    images: {
+        flower: String,
+        plume: String,
+        sands: String,
+        goblet: String,
+        circlet: String
+    },
+    url: {fandom: String},
+    insertDate: { type: Date, default: Date.now() }
+}
+```
+</details><br>
 
 # Materials
 
@@ -44,11 +231,52 @@
 | ``/materials/<language>/all``   | __Fetch all materials__                 |
 | ``/materials/<language>/daily`` | __Fecth all materials available today__ |
 
+<details>
+    <summary>Response format</summary>
+
+```js
+{
+    name: String,
+    description: String,
+    rarity: String,
+    category: String,
+    materialtype: String,
+    dropdomain: String,
+    daysofweek: [String],
+    source: [String],
+    images: {
+        redirect: String,
+        fandm: String
+    },
+    url: { fandom: String },
+    insertDate: Date
+}
+```
+</details><br>
+
 # Elements
 
 | Routes                      | Description           |
 | --------------------------- | --------------------- |
 | ``/elements/<language>/all`` | __Fetch all element__ |
+
+<details>
+    <summary>Response format</summary>
+
+```js
+{
+    archon: String,
+    color: String,
+    emoji: String,
+    name: String,
+    region: String,
+    theme: String,
+    type: String,
+    url: String,
+    insertDate: Date
+}
+```
+</details><br>
 
 # Builds
 
@@ -65,6 +293,52 @@
 | weapon    | ___String___ | Potential weapon in build                    |
 | artifact  | ___String___ | Potential artifact set name                  |
 
+<details>
+    <summary>Response format</summary>
+
+```js
+{
+    characterName: String,
+    role: String,
+    weapons: [
+        {
+            name: String,
+            priority: Number,
+        }
+    ],
+    artifacts: {
+        mainStats: {
+            sands: [String],
+            goblet: [String],
+            circlet: [String],
+        },
+        subStats: [
+            {
+                stat: String,
+                priority: Number
+            }
+        ],
+        sets: [
+            {
+                priority: Number,
+                bonus: [
+                    {
+                        set: String,
+                        pieces: Number
+                    }
+                ]
+            }
+        ]
+    },
+    talent: {
+        normal: Number,
+        skill: Number,
+        burst: Number
+    }
+}
+```
+</details><br>
+
 # Teams
 
 | Routes                               | Description                                      |
@@ -77,6 +351,22 @@
 | --------- | ------------ | ------------------------------------------------------------ |
 | character | ___String___ | Character's name in team                                     |
 | element   | ___String___ | Element in team among Anemo, Cryo, Electro, Geo, Hydro, Pyro |
+
+<details>
+    <summary>Response format</summary>
+
+```js
+{
+    characters: [
+        {
+            character: String,
+            element: String,
+            role: String
+        }
+    ]
+}
+```
+</details><br>
 
 # Sources
 
