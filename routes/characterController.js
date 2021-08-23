@@ -272,6 +272,33 @@ router.get('/:lang/all', (req, res) => {
     }
 })
 
+router.get('/:lang/name/all', (req, res) => {
+    if(req.params.lang == 'en-us') {
+        CharacterENModel.find((err, docs) => {
+            if(err) { console.log("Fetch all character's name error : " + err) }
+            else {
+                let list = []
+                docs.forEach(doc => {
+                    list.push(doc.name)
+                })
+                res.send(list)
+            }
+        })
+    }
+    else if(req.params.lang == 'fr-fr') {
+        CharacterFRModel.find((err, docs) => {
+            if(err) { console.log("Fetch all character's name error : " + err) }
+            else {
+                let list = []
+                docs.forEach(doc => {
+                    list.push(doc.name)
+                })
+                res.send(list)
+            }
+        })
+    }
+})
+
 router.get('/:lang/name/:name', (req, res) => {
     let forRegex = req.params.name.replace('(', '\\(').replace(')', '\\)').replace('.', '\\.')
     let regex = new RegExp(".*" + forRegex + ".*")
