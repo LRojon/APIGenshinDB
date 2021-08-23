@@ -4,6 +4,8 @@
   - [Full data character](#full-data-character)
   - [Low data character](#low-data-character)
 - [Weapons](#weapons)
+  - [Full data weapon](#full-data-weapon)
+  - [Low data weapon](#low-data-weapon)
 - [Artifacts](#artifacts)
 - [Materials](#materials)
 - [Elements](#elements)
@@ -95,7 +97,6 @@
 }
 ```
 </details>
-<br>
 
 ## Low data character
 
@@ -115,9 +116,11 @@
     icon: String
 }
 ```
-</details><br>
+</details>
 
 # Weapons
+
+## Full data weapon
 
 | Routes                      | Description           |
 | --------------------------- | --------------------- |
@@ -168,7 +171,26 @@
     insertDate: Date
 }
 ```
-</details><br>
+</details>
+
+## Low data weapon
+
+| Routes                         | Description                   |
+| ------------------------------ | ----------------------------- |
+| ``weapons/<language>/low/all`` | __Fetch all low data weapon__ |
+
+<details>
+    <summary>Response format</summary>
+
+```js
+{
+    name: String,
+    material: String,
+    rarity: String,
+    icon: String
+}
+```
+</details>
 
 # Artifacts
 
@@ -222,7 +244,7 @@
     insertDate: { type: Date, default: Date.now() }
 }
 ```
-</details><br>
+</details>
 
 # Materials
 
@@ -252,7 +274,7 @@
     insertDate: Date
 }
 ```
-</details><br>
+</details>
 
 # Elements
 
@@ -276,7 +298,7 @@
     insertDate: Date
 }
 ```
-</details><br>
+</details>
 
 # Builds
 
@@ -337,7 +359,7 @@
     }
 }
 ```
-</details><br>
+</details>
 
 # Teams
 
@@ -366,7 +388,7 @@
     ]
 }
 ```
-</details><br>
+</details>
 
 # Sources
 
