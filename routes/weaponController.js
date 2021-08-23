@@ -2,7 +2,64 @@ const express = require('express')
 const router = express.Router()
 const genshin = require('genshin-db')
 
-const { WeaponENModel, WeaponFRModel } = require('../models/weaponModel')
+const { WeaponENModel, WeaponFRModel, LDWeaponENModel, LDWeaponFRModel } = require('../models/weaponModel')
+
+router.get('/:lang/low/all', (req, res) => {
+    if(req.params.lang == 'en-us') {
+        LDWeaponENModel.deleteMany({}).exec()
+        WeaponENModel.find({}, (err, docs) => {
+            if(err) { console.log(err) }
+            else {
+                docs.forEach(doc => {
+                    let weapon = {
+                        name: doc.name,
+                        material: doc.costs.ascend1[1].name,
+                        rarity: doc.rarity,
+                        icon: doc.images.icon
+                    }
+                    console.log(weapon)
+                    let tmp = new LDWeaponENModel(weapon)
+                    tmp.save((err, doc) => {
+                        if(err) console.log(err)
+                    })
+                })
+                setTimeout(() => {
+                    LDWeaponENModel.find({}, (err, docs) => {
+                        if(err) console.log(err)
+                        else res.send(docs)
+                    })
+                }, 100);
+            }
+        })
+    }
+    else if(req.params.lang == 'fr-fr') {
+        LDWeaponFRModel.deleteMany({}).exec()
+        WeaponFRModel.find({}, (err, docs) => {
+            if(err) { console.log(err) }
+            else {
+                docs.forEach(doc => {
+                    let weapon = {
+                        name: doc.name,
+                        material: doc.costs.ascend1[1].name,
+                        rarity: doc.rarity,
+                        icon: doc.images.icon
+                    }
+                    console.log(weapon)
+                    let tmp = new LDWeaponFRModel(weapon)
+                    tmp.save((err, doc) => {
+                        if(err) console.log(err)
+                    })
+                })
+                setTimeout(() => {
+                    LDWeaponFRModel.find({}, (err, docs) => {
+                        if(err) console.log(err)
+                        else res.send(docs)
+                    })
+                }, 100);
+            }
+        })
+    }
+})
 
 router.get('/:lang/all', (req, res) => {
     if(req.params.lang == 'en-us')

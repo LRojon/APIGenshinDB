@@ -45,4 +45,13 @@ let schema = new Schema({
 const WeaponENModel = mongoose.model('WeaponModel', schema, 'weaponsEN')
 const WeaponFRModel = mongoose.model('WeaponModel', schema, 'weaponsFR')
 
-module.exports = { WeaponENModel, WeaponFRModel }
+let ldSchema = new Schema({
+    name: String,
+    material: String,
+    rarity: String,
+    icon: String
+})
+const LDWeaponENModel = mongoose.model('ldWeapon', ldSchema, "ldWeaponEN")
+const LDWeaponFRModel = mongoose.model('ldWeapon', ldSchema, "ldWeaponFR")
+
+module.exports = { WeaponENModel, WeaponFRModel, LDWeaponENModel, LDWeaponFRModel }
