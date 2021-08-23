@@ -61,4 +61,14 @@ let schema = new Schema({
 const CharacterENModel = mongoose.model('character', schema, "charactersEN")
 const CharacterFRModel = mongoose.model('character', schema, "charactersFR")
 
-module.exports = { CharacterENModel, CharacterFRModel }
+let ldSchema = new Schema({
+    name: String,
+    element: String,
+    material: String,
+    rarity: String,
+    icon: String
+})
+const LDCharacterENModel = mongoose.model('ldCharacter', ldSchema, "ldCharactersEN")
+const LDCharacterFRModel = mongoose.model('ldCharacter', ldSchema, "ldCharactersFR")
+
+module.exports = { CharacterENModel, CharacterFRModel, LDCharacterENModel, LDCharacterFRModel }
